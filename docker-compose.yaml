@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  node:
+    container_name: node-${PROJECT}
+    image: ${PROJECT}-node:${NODE_VERSION}
+    env_file:
+      - .env
+    build:
+      context: ./.docker/node/${NODE_VERSION}
+      args:
+        DOCKER_USER: kishlin
+        DOCKER_USER_ID: 1000
+    restart: "${RESTART_POLICIES}"
+    volumes:
+      - ${PWD}:/var/www/html
+      - cache:/srv/cache
+    ports:
+      - "3000:3000"
+    working_dir: /var/www/html
+    user: "kishlin"
+    command: npm start
+    networks:
+      - "docker-france-map-learner"
+
+networks:
+  docker-france-map-learner:
+    driver: bridge
+
+volumes:
+  cache:
+    external: true
