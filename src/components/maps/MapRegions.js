@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./MapRegions.css";
 
-import { STEP_ANSWER, STEP_INDICATION } from "../../constants/LessonSteps";
+import { STEP_ANSWER, STEP_INDICATION } from "../../constants/GameSteps";
 
 function MapRegions(props) {
     const computeClass = function(game, id) {

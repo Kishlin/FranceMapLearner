@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { STEP_INDICATION } from "../../constants/LessonSteps";
+import { STEP_INDICATION } from "../../constants/GameSteps";
 import Entity from "../../lib/Entity";
 
 const LessonLocationHeader = function(props) {

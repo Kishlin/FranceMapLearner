@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { STEP_ANSWER, STEP_INDICATION, STEP_PROMPT } from "../../constants/LessonSteps";
-import { LESSON_CORRECTION_TIMEOUT } from "../../constants/Config";
+import { STEP_ANSWER, STEP_INDICATION, STEP_PROMPT } from "../../constants/GameSteps";
+import { CORRECTION_TIMEOUT } from "../../constants/Config";
 import Loading from "../loading/Loading";
 import { shuffle } from "../../helpers";
 import Entity from "../../lib/Entity";
@@ -110,7 +110,7 @@ Lesson.propTypes = {
 };
 
 Lesson.defaultProps = {
-    answerTimeout: LESSON_CORRECTION_TIMEOUT,
+    answerTimeout: CORRECTION_TIMEOUT,
 };
 
 export default Lesson;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { STEP_INDICATION, STEP_PROMPT } from "../../constants/LessonSteps";
+import { STEP_INDICATION, STEP_PROMPT } from "../../constants/GameSteps";
 import CountdownProgressBar from "../progress/CountdownProgressBar";
 import PrimaryButton from "../button/PrimaryButton";
 
