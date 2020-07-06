@@ -5,6 +5,7 @@ import LearnRegionsLocation from "./routes/learn/regions/location/LearnRegionsLo
 import Home from "./routes/homepage/Home";
 
 import './App.css';
+import QuizRegionLocation from "./routes/quizz/regions/location/QuizzRegionsLocation";
 
 function App() {
     return (
@@ -12,6 +13,9 @@ function App() {
             <Switch>
                 <Route path="/learn/regions/location">
                     <LearnRegionsLocation />
+                </Route>
+                <Route path="/quizz/regions/location">
+                    <QuizRegionLocation />
                 </Route>
                 <Route path="/home">
                     <Home />
