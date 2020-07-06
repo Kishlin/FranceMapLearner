@@ -1,0 +1,44 @@
+#progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#progress #progress-background {
+    background: darkgrey;
+}
+
+#progress #progress-fill {
+    animation-name: countdown;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#progress, #progress #progress-background, #progress #progress-fill {
+    height: 30px;
+    width: 100%;
+}
+
+@keyframes countdown {
+    0% {
+        background: forestgreen;
+        width: 100%;
+    }
+
+    65% {
+        background: forestgreen;
+        width: 35%;
+    }
+
+    100% {
+        background: orangered;
+        width: 0;
+    }
+}
+
+@media only screen and (min-height: 700px) {
+    #progress, #progress #progress-background, #progress #progress-fill  {
+        height: 50px;
+    }
+}
