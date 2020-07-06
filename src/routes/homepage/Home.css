@@ -1,0 +1,31 @@
+div#home .home-section {
+    background: aliceblue;
+    border-radius: 25px;
+    margin: 10px 20px;
+    padding: 25px 30px;
+
+    min-width: 300px;
+    height: 200px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    text-transform: uppercase;
+    text-align: center;
+}
+
+div #home .home-section h1 {
+    color: orangered;
+    font-size: 1.3em;
+    margin: 0;
+}
+
+@media screen and (min-width: 500px) {
+    div #home .home-section {
+        min-width: 380px;
+    }
+
+    div #home .home-section h1 {
+        font-size: 2em;
+    }
+}
