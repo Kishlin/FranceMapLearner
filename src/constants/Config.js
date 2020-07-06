@@ -1,0 +1,4 @@
+export const ASK_AGAIN_KNOWN_IN_LESSON = true;
+export const LESSON_CORRECTION_TIMEOUT = 1000;
+export const REGIONS_INDICATIONS_COUNT = 3;
+export const ANSWER_TIME_IN_SECONDS = 10;
