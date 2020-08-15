@@ -7,6 +7,7 @@ import './App.css';
 import QuizRegionLocation from "./routes/quizz/regions/location/QuizzRegionsLocation";
 import LearnRegionsLocation from "./routes/learn/regions/location/LearnRegionsLocation";
 import LearnDepartmentsLocation from "./routes/learn/departments/location/LearnDepartmentsLocation";
+import QuizDepartmentsLocation from "./routes/quizz/departments/location/QuizzDepartmentsLocation";
 
 function App() {
     return (
@@ -20,6 +21,9 @@ function App() {
                 </Route>
                 <Route path="/quizz/regions/location">
                     <QuizRegionLocation />
+                </Route>
+                <Route path="/quizz/departments/location">
+                    <QuizDepartmentsLocation />
                 </Route>
                 <Route path="/home">
                     <Home />
