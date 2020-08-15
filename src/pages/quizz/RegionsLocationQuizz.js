@@ -7,24 +7,17 @@ import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
 import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
 import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
 import MapRegions from "../../components/maps/MapRegions";
-import Loading from "../../components/loading/Loading";
 import Quiz from "../../components/quizz/Quiz";
-import { shuffle } from "../../helpers";
+import Region from "../../lib/Region";
 
 class RegionLocationQuiz extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { entities: [], configured: false, finished: false };
+        this.state = { configured: false, finished: false };
 
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
         this.onLessonFinished = this.onLessonFinished.bind(this);
-    }
-
-    componentDidMount() {
-        import("../../data/Regions").then(content => {
-            this.setState({ entities: shuffle(content.default) });
-        })
     }
 
     onConfigurationSubmit(loopCount, answerTime) {
@@ -44,14 +37,10 @@ class RegionLocationQuiz extends React.Component {
     }
 
     render() {
-        if (0 === this.state.entities.length) {
-            return (<Loading />);
-        }
-
         if (false === this.state.configured) {
             return <RegionLocationQuizzConfigurator
                 onSubmit={this.onConfigurationSubmit}
-                max={this.state.entities.length}
+                max={this.props.regions.length}
                 {...this.props}
             />
         }
@@ -61,12 +50,13 @@ class RegionLocationQuiz extends React.Component {
         }
 
         return  (
-            <Quiz {...this.state} renderLesson={this.renderLesson} onQuizFinished={this.onLessonFinished} />
+            <Quiz {...this.state} entities={this.props.regions} renderLesson={this.renderLesson} onQuizFinished={this.onLessonFinished} />
         );
     }
 }
 
 RegionLocationQuiz.propTypes = {
+    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     answerTime: PropTypes.number.isRequired,
     loopCount: PropTypes.number.isRequired,
 };

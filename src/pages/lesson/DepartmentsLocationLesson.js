@@ -7,31 +7,23 @@ import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
 import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
 import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
 import MapDepartments from "../../components/maps/MapDepartments";
-import Loading from "../../components/loading/Loading";
 import Lesson from "../../components/lesson/Lesson";
+import Department from "../../lib/Department";
 import { shuffle } from "../../helpers";
+import Region from "../../lib/Region";
 
 class DepartmentsLocationLesson extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { regions: [], departments: [], configured: false, finished: false };
+        this.state = { configured: false, finished: false };
 
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
         this.onLessonFinished = this.onLessonFinished.bind(this);
     }
 
-    componentDidMount() {
-        const regions = import("../../data/Regions");
-        const departments = import("../../data/Departments");
-
-        Promise.all([regions, departments])
-            .then(values => this.setState({ regions: values[0].default, departments: values[1].default }))
-        ;
-    }
-
     onConfigurationSubmit(indicationCountPerSet, askAgainKnown, answerTime, regionSelect) {
-        const entities = shuffle(this.state.departments.filter(department => regionSelect[department.region]));
+        const entities = shuffle(this.props.departments.filter(department => regionSelect[department.region]));
         this.setState({ indicationCountPerSet, askAgainKnown, answerTime, entities, configured: true });
     }
 
@@ -48,14 +40,10 @@ class DepartmentsLocationLesson extends React.Component {
     }
 
     render() {
-        if (0 === this.state.regions.length || 0 === this.state.departments.length) {
-            return (<Loading />);
-        }
-
         if (false === this.state.configured) {
             return <DepartmentLocationLessonConfigurator
                 onSubmit={this.onConfigurationSubmit}
-                regions={this.state.regions}
+                regions={this.props.regions}
                 {...this.props}
             />;
         }
@@ -72,6 +60,8 @@ class DepartmentsLocationLesson extends React.Component {
 }
 
 DepartmentsLocationLesson.propTypes = {
+    departments: PropTypes.arrayOf(PropTypes.instanceOf(Department)).isRequired,
+    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     indicationCountPerSet: PropTypes.number.isRequired,
     askAgainKnown: PropTypes.bool.isRequired,
     answerTime: PropTypes.number.isRequired,

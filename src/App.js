@@ -9,21 +9,24 @@ import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
 import RegionLocationQuiz from "./pages/quizz/RegionsLocationQuizz";
 import Home from "./pages/homepage/Home";
 
+import Departments from "./data/Departments";
+import Regions  from "./data/Regions";
+
 function App() {
     return (
         <Router>
             <Switch>
                 <Route path="/learn/regions/location">
-                    <RegionsLocationLesson />
+                    <RegionsLocationLesson regions={Regions} />
                 </Route>
                 <Route path="/learn/departments/location">
-                    <DepartmentsLocationLesson />
+                    <DepartmentsLocationLesson departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/quizz/regions/location">
-                    <RegionLocationQuiz />
+                    <RegionLocationQuiz regions={Regions} />
                 </Route>
                 <Route path="/quizz/departments/location">
-                    <DepartmentsLocationQuiz />
+                    <DepartmentsLocationQuiz departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/home">
                     <Home />

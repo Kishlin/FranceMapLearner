@@ -7,24 +7,17 @@ import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
 import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
 import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
 import MapRegions from "../../components/maps/MapRegions";
-import Loading from "../../components/loading/Loading";
 import Lesson from "../../components/lesson/Lesson";
-import { shuffle } from "../../helpers";
+import Region from "../../lib/Region";
 
 class RegionsLocationLesson extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { entities: [], configured: false, finished: false };
+        this.state = { configured: false, finished: false };
 
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
         this.onLessonFinished = this.onLessonFinished.bind(this);
-    }
-
-    componentDidMount() {
-        import("../../data/Regions").then(content => {
-            this.setState({ entities: shuffle(content.default) });
-        })
     }
 
     onConfigurationSubmit(indicationCountPerSet, askAgainKnown, answerTime) {
@@ -44,14 +37,10 @@ class RegionsLocationLesson extends React.Component {
     }
 
     render() {
-        if (0 === this.state.entities.length) {
-            return (<Loading />);
-        }
-
         if (false === this.state.configured) {
             return <RegionLocationLessonConfigurator
                 onSubmit={this.onConfigurationSubmit}
-                max={this.state.entities.length}
+                max={this.props.regions.length}
                 {...this.props}
             />
         }
@@ -61,12 +50,13 @@ class RegionsLocationLesson extends React.Component {
         }
 
         return  (
-            <Lesson {...this.state} renderLesson={this.renderLesson} onLessonFinished={this.onLessonFinished} />
+            <Lesson {...this.state} entities={this.props.regions} renderLesson={this.renderLesson} onLessonFinished={this.onLessonFinished} />
         );
     }
 }
 
 RegionsLocationLesson.propTypes = {
+    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     indicationCountPerSet: PropTypes.number.isRequired,
     askAgainKnown: PropTypes.bool.isRequired,
     answerTime: PropTypes.number.isRequired,
