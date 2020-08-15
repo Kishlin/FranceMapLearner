@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ANSWER_TIME_IN_SECONDS, REGIONS_INDICATIONS_COUNT, ASK_AGAIN_KNOWN_IN_LESSON } from "../../../../constants/Config";
-import RegionLocationLessonConfigurator from "../../../../components/configurator/RegionLocationLessonConfigurator";
-import LessonLocationHeader from "../../../../components/lesson/LessonLocationHeader";
-import LessonGenericFooter from "../../../../components/lesson/LessonGenericFooter";
-import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
-import MapRegions from "../../../../components/maps/MapRegions";
-import Loading from "../../../../components/loading/Loading";
-import Lesson from "../../../../components/lesson/Lesson";
-import { shuffle } from "../../../../helpers";
+import { ANSWER_TIME_IN_SECONDS, REGIONS_INDICATIONS_COUNT, ASK_AGAIN_KNOWN_IN_LESSON } from "../../constants/Config";
+import RegionLocationLessonConfigurator from "../configurator/RegionLocationLessonConfigurator";
+import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
+import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
+import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
+import MapRegions from "../../components/maps/MapRegions";
+import Loading from "../../components/loading/Loading";
+import Lesson from "../../components/lesson/Lesson";
+import { shuffle } from "../../helpers";
 
-class LearnRegionsLocation extends React.Component {
+class RegionsLocationLesson extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,13 +22,17 @@ class LearnRegionsLocation extends React.Component {
     }
 
     componentDidMount() {
-        import("../../../../data/Regions").then(content => {
+        import("../../data/Regions").then(content => {
             this.setState({ entities: shuffle(content.default) });
         })
     }
 
     onConfigurationSubmit(indicationCountPerSet, askAgainKnown, answerTime) {
         this.setState({ indicationCountPerSet, askAgainKnown, answerTime, configured: true });
+    }
+
+    onLessonFinished(stats) {
+        this.setState({ stats, finished: true });
     }
 
     renderLesson(game, moveOnToNextStep, onAnswer, answerTime) {
@@ -62,16 +66,16 @@ class LearnRegionsLocation extends React.Component {
     }
 }
 
-LearnRegionsLocation.propTypes = {
+RegionsLocationLesson.propTypes = {
     indicationCountPerSet: PropTypes.number.isRequired,
     askAgainKnown: PropTypes.bool.isRequired,
     answerTime: PropTypes.number.isRequired,
 };
 
-LearnRegionsLocation.defaultProps = {
+RegionsLocationLesson.defaultProps = {
     indicationCountPerSet: REGIONS_INDICATIONS_COUNT,
     askAgainKnown: ASK_AGAIN_KNOWN_IN_LESSON,
     answerTime: ANSWER_TIME_IN_SECONDS,
 }
 
-export default LearnRegionsLocation;
+export default RegionsLocationLesson;

@@ -5,9 +5,9 @@ import { Box, Checkbox, FormControlLabel, Grid, Input, Slider } from "@material-
 import "./Configurator.css";
 
 import {computeQuestionCount, useCheckboxState, useNumberState, useObjectState, useSliderState} from "../../helpers";
-import PrimaryButton from "../button/PrimaryButton";
-import HomeButton from "../button/HomeButton";
-import FormTitle from "../title/FormTitle";
+import PrimaryButton from "../../components/button/PrimaryButton";
+import HomeButton from "../../components/button/HomeButton";
+import FormTitle from "../../components/title/FormTitle";
 import Region from "../../lib/Region";
 
 function DepartmentLocationLessonConfigurator(props) {

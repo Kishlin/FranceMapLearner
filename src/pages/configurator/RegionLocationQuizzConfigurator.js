@@ -4,10 +4,10 @@ import { Box, Grid, Input } from "@material-ui/core";
 
 import "./Configurator.css";
 
+import PrimaryButton from "../../components/button/PrimaryButton";
+import HomeButton from "../../components/button/HomeButton";
+import FormTitle from "../../components/title/FormTitle";
 import { useNumberState } from "../../helpers";
-import PrimaryButton from "../button/PrimaryButton";
-import HomeButton from "../button/HomeButton";
-import FormTitle from "../title/FormTitle";
 
 function RegionLocationQuizzConfigurator(props) {
     const [answerTime, handleAnswerTimeChange] = useNumberState(props.answerTime);

@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DepartmentLocationQuizzConfigurator from "../../../../components/configurator/DepartmentLocationQuizzConfigurator";
-import { ANSWER_TIME_IN_SECONDS, LOOP_COUNT_PER_QUIZZ } from "../../../../constants/Config";
-import QuizLocationHeader from "../../../../components/quizz/QuizLocationHeader";
-import QuizGenericFooter from "../../../../components/quizz/QuizGenericFooter";
-import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
-import MapDepartments from "../../../../components/maps/MapDepartments";
-import Loading from "../../../../components/loading/Loading";
-import Quiz from "../../../../components/quizz/Quiz";
-import { shuffle } from "../../../../helpers";
+import DepartmentLocationQuizzConfigurator from "../configurator/DepartmentLocationQuizzConfigurator";
+import { ANSWER_TIME_IN_SECONDS, LOOP_COUNT_PER_QUIZZ } from "../../constants/Config";
+import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
+import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
+import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
+import MapDepartments from "../../components/maps/MapDepartments";
+import Loading from "../../components/loading/Loading";
+import Quiz from "../../components/quizz/Quiz";
+import { shuffle } from "../../helpers";
 
-class QuizDepartmentsLocation extends React.Component {
+class DepartmentsLocationQuiz extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,8 +22,8 @@ class QuizDepartmentsLocation extends React.Component {
     }
 
     componentDidMount() {
-        const regions = import("../../../../data/Regions");
-        const departments = import("../../../../data/Departments");
+        const regions = import("../../data/Regions");
+        const departments = import("../../data/Departments");
 
         Promise.all([regions, departments])
             .then(values => this.setState({ regions: values[0].default, departments: values[1].default }))
@@ -70,14 +70,14 @@ class QuizDepartmentsLocation extends React.Component {
     }
 }
 
-QuizDepartmentsLocation.propTypes = {
+DepartmentsLocationQuiz.propTypes = {
     answerTime: PropTypes.number.isRequired,
     loopCount: PropTypes.number.isRequired,
 };
 
-QuizDepartmentsLocation.defaultProps = {
+DepartmentsLocationQuiz.defaultProps = {
     answerTime: ANSWER_TIME_IN_SECONDS,
     loopCount: LOOP_COUNT_PER_QUIZZ,
 }
 
-export default QuizDepartmentsLocation;
+export default DepartmentsLocationQuiz;

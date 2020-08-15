@@ -5,9 +5,9 @@ import { Box, Grid, Input, Slider, Checkbox, FormControlLabel } from "@material-
 import "./Configurator.css";
 
 import { computeQuestionCount, useCheckboxState, useSliderState, useNumberState } from "../../helpers";
-import PrimaryButton from "../button/PrimaryButton";
-import HomeButton from "../button/HomeButton";
-import FormTitle from "../title/FormTitle";
+import PrimaryButton from "../../components/button/PrimaryButton";
+import HomeButton from "../../components/button/HomeButton";
+import FormTitle from "../../components/title/FormTitle";
 
 function RegionLocationLessonConfigurator(props) {
     const [indicationCountPerSet, handleSliderChange, handleInputChange] = useSliderState(props.indicationCountPerSet);

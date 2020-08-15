@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import RegionLocationQuizzConfigurator from "../../../../components/configurator/RegionLocationQuizzConfigurator";
-import { ANSWER_TIME_IN_SECONDS, LOOP_COUNT_PER_QUIZZ } from "../../../../constants/Config";
-import QuizLocationHeader from "../../../../components/quizz/QuizLocationHeader";
-import QuizGenericFooter from "../../../../components/quizz/QuizGenericFooter";
-import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
-import MapRegions from "../../../../components/maps/MapRegions";
-import Loading from "../../../../components/loading/Loading";
-import Quiz from "../../../../components/quizz/Quiz";
-import { shuffle } from "../../../../helpers";
+import RegionLocationQuizzConfigurator from "../configurator/RegionLocationQuizzConfigurator";
+import { ANSWER_TIME_IN_SECONDS, LOOP_COUNT_PER_QUIZZ } from "../../constants/Config";
+import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
+import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
+import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
+import MapRegions from "../../components/maps/MapRegions";
+import Loading from "../../components/loading/Loading";
+import Quiz from "../../components/quizz/Quiz";
+import { shuffle } from "../../helpers";
 
-class QuizRegionLocation extends React.Component {
+class RegionLocationQuiz extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,7 +22,7 @@ class QuizRegionLocation extends React.Component {
     }
 
     componentDidMount() {
-        import("../../../../data/Regions").then(content => {
+        import("../../data/Regions").then(content => {
             this.setState({ entities: shuffle(content.default) });
         })
     }
@@ -66,14 +66,14 @@ class QuizRegionLocation extends React.Component {
     }
 }
 
-QuizRegionLocation.propTypes = {
+RegionLocationQuiz.propTypes = {
     answerTime: PropTypes.number.isRequired,
     loopCount: PropTypes.number.isRequired,
 };
 
-QuizRegionLocation.defaultProps = {
+RegionLocationQuiz.defaultProps = {
     answerTime: ANSWER_TIME_IN_SECONDS,
     loopCount: LOOP_COUNT_PER_QUIZZ,
 }
 
-export default QuizRegionLocation;
+export default RegionLocationQuiz;

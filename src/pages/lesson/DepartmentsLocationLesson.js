@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ANSWER_TIME_IN_SECONDS, ASK_AGAIN_KNOWN_IN_LESSON, REGIONS_INDICATIONS_COUNT } from "../../../../constants/Config";
-import DepartmentLocationLessonConfigurator from "../../../../components/configurator/DepartmentLocationLessonConfigurator";
-import LessonLocationHeader from "../../../../components/lesson/LessonLocationHeader";
-import LessonGenericFooter from "../../../../components/lesson/LessonGenericFooter";
-import MapDepartments from "../../../../components/maps/MapDepartments";
-import Loading from "../../../../components/loading/Loading";
-import Lesson from "../../../../components/lesson/Lesson";
-import { shuffle } from "../../../../helpers";
-import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
+import { ANSWER_TIME_IN_SECONDS, ASK_AGAIN_KNOWN_IN_LESSON, REGIONS_INDICATIONS_COUNT } from "../../constants/Config";
+import DepartmentLocationLessonConfigurator from "../configurator/DepartmentLocationLessonConfigurator";
+import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
+import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
+import ScoreScreen from "../../components/ScoreScreen/ScoreScreen";
+import MapDepartments from "../../components/maps/MapDepartments";
+import Loading from "../../components/loading/Loading";
+import Lesson from "../../components/lesson/Lesson";
+import { shuffle } from "../../helpers";
 
-class LearnDepartmentsLocation extends React.Component {
+class DepartmentsLocationLesson extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,8 +22,8 @@ class LearnDepartmentsLocation extends React.Component {
     }
 
     componentDidMount() {
-        const regions = import("../../../../data/Regions");
-        const departments = import("../../../../data/Departments");
+        const regions = import("../../data/Regions");
+        const departments = import("../../data/Departments");
 
         Promise.all([regions, departments])
             .then(values => this.setState({ regions: values[0].default, departments: values[1].default }))
@@ -71,16 +71,16 @@ class LearnDepartmentsLocation extends React.Component {
 
 }
 
-LearnDepartmentsLocation.propTypes = {
+DepartmentsLocationLesson.propTypes = {
     indicationCountPerSet: PropTypes.number.isRequired,
     askAgainKnown: PropTypes.bool.isRequired,
     answerTime: PropTypes.number.isRequired,
 };
 
-LearnDepartmentsLocation.defaultProps = {
+DepartmentsLocationLesson.defaultProps = {
     indicationCountPerSet: REGIONS_INDICATIONS_COUNT,
     askAgainKnown: ASK_AGAIN_KNOWN_IN_LESSON,
     answerTime: ANSWER_TIME_IN_SECONDS,
 }
 
-export default LearnDepartmentsLocation;
+export default DepartmentsLocationLesson;

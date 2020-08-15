@@ -1,29 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import Home from "./routes/homepage/Home";
-
 import './App.css';
-import QuizRegionLocation from "./routes/quizz/regions/location/QuizzRegionsLocation";
-import LearnRegionsLocation from "./routes/learn/regions/location/LearnRegionsLocation";
-import LearnDepartmentsLocation from "./routes/learn/departments/location/LearnDepartmentsLocation";
-import QuizDepartmentsLocation from "./routes/quizz/departments/location/QuizzDepartmentsLocation";
+
+import DepartmentsLocationLesson from "./pages/lesson/DepartmentsLocationLesson";
+import DepartmentsLocationQuiz from "./pages/quizz/DepartmentsLocationQuizz";
+import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
+import RegionLocationQuiz from "./pages/quizz/RegionsLocationQuizz";
+import Home from "./pages/homepage/Home";
 
 function App() {
     return (
         <Router>
             <Switch>
                 <Route path="/learn/regions/location">
-                    <LearnRegionsLocation />
+                    <RegionsLocationLesson />
                 </Route>
                 <Route path="/learn/departments/location">
-                    <LearnDepartmentsLocation />
+                    <DepartmentsLocationLesson />
                 </Route>
                 <Route path="/quizz/regions/location">
-                    <QuizRegionLocation />
+                    <RegionLocationQuiz />
                 </Route>
                 <Route path="/quizz/departments/location">
-                    <QuizDepartmentsLocation />
+                    <DepartmentsLocationQuiz />
                 </Route>
                 <Route path="/home">
                     <Home />
