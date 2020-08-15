@@ -22,7 +22,7 @@ div #home .home-section h1 {
 
 @media screen and (min-width: 500px) {
     div #home .home-section {
-        min-width: 380px;
+        min-width: 400px;
     }
 
     div #home .home-section h1 {

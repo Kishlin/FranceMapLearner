@@ -1,55 +1,63 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ANSWER_TIME_IN_SECONDS, REGIONS_INDICATIONS_COUNT, ASK_AGAIN_KNOWN_IN_LESSON } from "../../../../constants/Config";
-import RegionLocationLessonConfigurator from "../../../../components/configurator/RegionLocationLessonConfigurator";
+import { ANSWER_TIME_IN_SECONDS, ASK_AGAIN_KNOWN_IN_LESSON, REGIONS_INDICATIONS_COUNT } from "../../../../constants/Config";
+import DepartmentLocationLessonConfigurator from "../../../../components/configurator/DepartmentLocationLessonConfigurator";
 import LessonLocationHeader from "../../../../components/lesson/LessonLocationHeader";
 import LessonGenericFooter from "../../../../components/lesson/LessonGenericFooter";
-import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
-import MapRegions from "../../../../components/maps/MapRegions";
+import MapDepartments from "../../../../components/maps/MapDepartments";
 import Loading from "../../../../components/loading/Loading";
 import Lesson from "../../../../components/lesson/Lesson";
 import { shuffle } from "../../../../helpers";
+import ScoreScreen from "../../../../components/ScoreScreen/ScoreScreen";
 
-class LearnRegionsLocation extends React.Component {
+class LearnDepartmentsLocation extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { entities: [], configured: false, finished: false };
+        this.state = { regions: [], departments: [], configured: false, finished: false };
 
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
         this.onLessonFinished = this.onLessonFinished.bind(this);
     }
 
     componentDidMount() {
-        import("../../../../data/Regions").then(content => {
-            this.setState({ entities: shuffle(content.default) });
-        })
+        const regions = import("../../../../data/Regions");
+        const departments = import("../../../../data/Departments");
+
+        Promise.all([regions, departments])
+            .then(values => this.setState({ regions: values[0].default, departments: values[1].default }))
+        ;
     }
 
-    onConfigurationSubmit(indicationCountPerSet, askAgainKnown, answerTime) {
-        this.setState({ indicationCountPerSet, askAgainKnown, answerTime, configured: true });
+    onConfigurationSubmit(indicationCountPerSet, askAgainKnown, answerTime, regionSelect) {
+        const entities = shuffle(this.state.departments.filter(department => regionSelect[department.region]));
+        this.setState({ indicationCountPerSet, askAgainKnown, answerTime, entities, configured: true });
+    }
+
+    onLessonFinished(stats) {
+        this.setState({ stats, finished: true });
     }
 
     renderLesson(game, moveOnToNextStep, onAnswer, answerTime) {
         return <>
             <LessonLocationHeader game={game} />
-            <MapRegions game={game} onRegionClick={onAnswer} />
+            <MapDepartments game={game} onDepartmentClick={onAnswer} />
             <LessonGenericFooter game={game} moveOnToNextStep={moveOnToNextStep} onAnswer={onAnswer} answerTime={answerTime} />
         </>;
     }
 
     render() {
-        if (0 === this.state.entities.length) {
+        if (0 === this.state.regions.length || 0 === this.state.departments.length) {
             return (<Loading />);
         }
 
         if (false === this.state.configured) {
-            return <RegionLocationLessonConfigurator
+            return <DepartmentLocationLessonConfigurator
                 onSubmit={this.onConfigurationSubmit}
-                max={this.state.entities.length}
+                regions={this.state.regions}
                 {...this.props}
-            />
+            />;
         }
 
         if (true === this.state.finished) {
@@ -60,18 +68,19 @@ class LearnRegionsLocation extends React.Component {
             <Lesson {...this.state} renderLesson={this.renderLesson} onLessonFinished={this.onLessonFinished} />
         );
     }
+
 }
 
-LearnRegionsLocation.propTypes = {
+LearnDepartmentsLocation.propTypes = {
     indicationCountPerSet: PropTypes.number.isRequired,
     askAgainKnown: PropTypes.bool.isRequired,
     answerTime: PropTypes.number.isRequired,
 };
 
-LearnRegionsLocation.defaultProps = {
+LearnDepartmentsLocation.defaultProps = {
     indicationCountPerSet: REGIONS_INDICATIONS_COUNT,
     askAgainKnown: ASK_AGAIN_KNOWN_IN_LESSON,
     answerTime: ANSWER_TIME_IN_SECONDS,
 }
 
-export default LearnRegionsLocation;
+export default LearnDepartmentsLocation;

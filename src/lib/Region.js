@@ -1,9 +1,9 @@
 import Entity from "./Entity";
 
 export default class Region extends Entity {
-    constructor(id, name, hometown, departments) {
+    constructor(id, name, hometown, departmentCount) {
         super(id, name, hometown);
 
-        this.departments = departments;
+        this.departmentCount = departmentCount;
     }
 }

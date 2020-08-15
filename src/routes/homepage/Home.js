@@ -13,6 +13,11 @@ function Home() {
                 <LinkButton url="/learn/regions/location" text="Learn" />
                 <LinkButton url="/quizz/regions/location" text="Quizz" />
             </Grid>
+            <Grid item xs className="home-section">
+                <h1>Departments - Map</h1>
+                <LinkButton url="/learn/departments/location" text="Learn" />
+                <LinkButton url="/quizz/departments/location" text="Quizz" />
+            </Grid>
         </Grid>
     );
 }
