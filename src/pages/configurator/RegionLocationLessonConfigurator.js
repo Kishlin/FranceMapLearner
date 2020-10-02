@@ -8,18 +8,26 @@ import { computeQuestionCount, useCheckboxState, useSliderState, useNumberState 
 import PrimaryButton from "../../components/button/PrimaryButton";
 import HomeButton from "../../components/button/HomeButton";
 import FormTitle from "../../components/title/FormTitle";
+import {
+    ANSWER_TIME_IN_SECONDS,
+    ASK_AGAIN_KNOWN_IN_LESSON,
+    CORRECTION_TIMEOUT,
+    REGIONS_INDICATIONS_COUNT
+} from "../../constants/Config";
 
 function RegionLocationLessonConfigurator(props) {
-    const [indicationCountPerSet, handleSliderChange, handleInputChange] = useSliderState(props.indicationCountPerSet);
-    const [askAgainKnown, handleAskAgainKnownChange] = useCheckboxState(props.askAgainKnown);
-    const [answerTime, handleAnswerTimeChange] = useNumberState(props.answerTime);
+    const [indicationCountPerSet, handleSliderChange, handleInputChange] = useSliderState(REGIONS_INDICATIONS_COUNT);
+    const [askAgainKnown, handleAskAgainKnownChange] = useCheckboxState(ASK_AGAIN_KNOWN_IN_LESSON);
+    const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
 
     const questionCount = computeQuestionCount(askAgainKnown, indicationCountPerSet, props.max);
 
-    const buttonHandler = () => props.onSubmit(indicationCountPerSet, askAgainKnown, answerTime);
+    const buttonHandler = () =>
+        props.onSubmit({ indicationCountPerSet, askAgainKnown, answerTime, answerTimeout: CORRECTION_TIMEOUT })
+    ;
 
-    const indicationCountNumberInputProps = { step: 1, min: 1, max: props.max, type: 'number', 'aria-labelledby': 'label-indications' };
     const answerTimeInputProps = { step: 1, min: 1, max: 99, type: 'number', 'aria-labelledby': 'label-answer-time' };
+    const indicationCountProps = { step: 1, min: 1, max: props.max, type: 'number', 'aria-labelledby': 'label-indications' };
 
     return (
         <Box className="configurator">
@@ -42,7 +50,7 @@ function RegionLocationLessonConfigurator(props) {
                         />
                     </Grid>
                     <Grid item xs={2}>
-                        <Input margin="dense" onChange={handleInputChange} value={indicationCountPerSet} inputProps={indicationCountNumberInputProps} />
+                        <Input margin="dense" onChange={handleInputChange} value={indicationCountPerSet} inputProps={indicationCountProps} />
                     </Grid>
                 </Grid>
             </section>
@@ -73,9 +81,6 @@ function RegionLocationLessonConfigurator(props) {
 }
 
 RegionLocationLessonConfigurator.propTypes = {
-    indicationCountPerSet: PropTypes.number.isRequired,
-    askAgainKnown: PropTypes.bool.isRequired,
-    answerTime: PropTypes.number.isRequired,
     onSubmit: PropTypes.func.isRequired,
     max: PropTypes.number.isRequired,
 };
