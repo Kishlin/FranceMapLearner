@@ -13,8 +13,8 @@ const LessonGenericFooter = function (props) {
             return <CountdownProgressBar
                 key={props.game.current.id}
                 onFinished={props.onAnswer}
-                answerTime={props.answerTime}
-            />
+                answerTime={props.game.configuration.answerTime}
+            />;
         }
 
         return <noscript />;
@@ -26,7 +26,7 @@ const LessonGenericFooter = function (props) {
 }
 
 LessonGenericFooter.propTypes = {
-    answerTime: PropTypes.number.isRequired,
+    moveOnToNextStep: PropTypes.func.isRequired,
     onAnswer: PropTypes.func.isRequired,
     game: PropTypes.object.isRequired,
 }
