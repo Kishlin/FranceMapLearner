@@ -5,11 +5,12 @@ import { Box, Checkbox, FormControlLabel, Grid, Input, Slider } from "@material-
 import "./Configurator.css";
 
 import {
+    computeIndicationMax,
     computeQuestionCount,
     shuffle,
     useCheckboxState,
     useNumberState,
-    useObjectState,
+    useRegionSelectState,
     useSliderState
 } from "../../helpers";
 import PrimaryButton from "../../components/button/PrimaryButton";
@@ -27,17 +28,10 @@ import {
 function DepartmentLocationLessonConfigurator(props) {
     const [indicationCountPerSet, handleSliderChange, handleInputChange] = useSliderState(REGIONS_INDICATIONS_COUNT);
     const [askAgainKnown, handleAskAgainKnownChange] = useCheckboxState(ASK_AGAIN_KNOWN_IN_LESSON);
+    const [regionSelect, handleRegionSelectChange] = useRegionSelectState(props.regions);
     const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
 
-    const baseRegionSelect = {};
-    props.regions.forEach(region => baseRegionSelect[region.id] = false);
-    const [regionSelect, handleRegionSelectChange] = useObjectState(baseRegionSelect);
-
-    const computeIndicationMax = () => props.regions
-        .filter((region) => regionSelect[region.id])
-        .reduce((total, region) => total + region.departmentCount, 0);
-
-    const max = computeIndicationMax();
+    const max = computeIndicationMax(props.regions, regionSelect);
     const realIndicationCount = Math.min(max, indicationCountPerSet);
     const questionCount = computeQuestionCount(askAgainKnown, realIndicationCount, max);
     const answerTimeInputProps = { step: 1, min: 1, max: 99, type: 'number', 'aria-labelledby': 'label-answer-time' };

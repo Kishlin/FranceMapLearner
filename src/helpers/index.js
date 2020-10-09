@@ -1,3 +1,5 @@
+export * from "./computeIndicationMax";
+
 export * from "./computeMapItemClass";
 
 export * from "./computeQuestionCount";
@@ -8,3 +10,4 @@ export * from "./useCheckboxState";
 export * from "./useObjectState";
 export * from "./useSliderState";
 export * from "./useNumberState";
+export * from "./useRegionSelectState";
