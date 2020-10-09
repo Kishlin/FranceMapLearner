@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import RegionLocationQuizzConfigurator from "../configurator/RegionLocationQuizzConfigurator";
+import RegionQuizzConfigurator from "../configurator/RegionQuizzConfigurator";
 import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
 import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
 import MapRegions from "../../components/maps/MapRegions";
@@ -10,7 +10,7 @@ import Region from "../../lib/Region";
 
 function RegionLocationQuiz(props) {
     const renderConfiguration = onSubmit => (
-        <RegionLocationQuizzConfigurator onSubmit={onSubmit} regions={props.regions} />
+        <RegionQuizzConfigurator onSubmit={onSubmit} regions={props.regions} />
     );
 
     const renderQuizz = (game, stats, moveOnToNextStep, onAnswer) => (

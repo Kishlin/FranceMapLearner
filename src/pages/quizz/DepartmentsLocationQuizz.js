@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DepartmentLocationQuizzConfigurator from "../configurator/DepartmentLocationQuizzConfigurator";
+import DepartmentQuizzConfigurator from "../configurator/DepartmentQuizzConfigurator";
 import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
 import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
 import MapDepartments from "../../components/maps/MapDepartments";
@@ -11,7 +11,7 @@ import Region from "../../lib/Region";
 
 function DepartmentsLocationQuiz(props) {
     const renderConfiguration = onSubmit => (
-        <DepartmentLocationQuizzConfigurator onSubmit={onSubmit} {...props} />
+        <DepartmentQuizzConfigurator onSubmit={onSubmit} {...props} />
     );
 
     const renderQuizz = (game, stats, moveOnToNextStep, onAnswer) => {

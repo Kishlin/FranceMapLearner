@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import RegionLocationLessonConfigurator from "../configurator/RegionLocationLessonConfigurator";
+import RegionLessonConfigurator from "../configurator/RegionLessonConfigurator";
 import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
 import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
 import MapRegions from "../../components/maps/MapRegions";
@@ -10,7 +10,7 @@ import Region from "../../lib/Region";
 
 function RegionsLocationLesson(props) {
     const renderConfiguration = onSubmit => (
-        <RegionLocationLessonConfigurator onSubmit={onSubmit} regions={props.regions} />
+        <RegionLessonConfigurator onSubmit={onSubmit} regions={props.regions} />
     );
 
     const renderLesson = (game, stats, moveOnToNextStep, onAnswer) => (

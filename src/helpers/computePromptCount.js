@@ -1,4 +1,4 @@
-export function computeQuestionCount(askAgainKnown, indicationCountPerSet, max) {
+export function computePromptCount(askAgainKnown, indicationCountPerSet, max) {
     if (false === askAgainKnown) {
         return max;
     }

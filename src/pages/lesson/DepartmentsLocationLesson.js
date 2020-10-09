@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import DepartmentLocationLessonConfigurator from "../configurator/DepartmentLocationLessonConfigurator";
+import DepartmentLessonConfigurator from "../configurator/DepartmentLessonConfigurator";
 import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
 import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
 import MapDepartments from "../../components/maps/MapDepartments";
@@ -11,7 +11,7 @@ import Region from "../../lib/Region";
 
 function DepartmentsLocationLesson(props) {
     const renderConfiguration = onSubmit => (
-        <DepartmentLocationLessonConfigurator onSubmit={onSubmit} {...props} />
+        <DepartmentLessonConfigurator onSubmit={onSubmit} {...props} />
     );
 
     const renderLesson = (game, stats, moveOnToNextStep, onAnswer) => (

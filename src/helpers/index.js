@@ -2,7 +2,7 @@ export * from "./computeIndicationMax";
 
 export * from "./computeMapItemClass";
 
-export * from "./computeQuestionCount";
+export * from "./computePromptCount";
 
 export * from "./shuffle";
 
