@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Grid } from "@material-ui/core";
 
-import PrimaryButton from "../button/PrimaryButton";
-import HomeButton from "../button/HomeButton";
+import PrimaryButton from "../Button/PrimaryButton";
+import HomeButton from "../Button/HomeButton";
 
 function GoButtonBox(props) {
     return (

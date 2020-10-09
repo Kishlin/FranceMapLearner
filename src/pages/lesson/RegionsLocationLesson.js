@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import RegionLessonConfigurator from "../configurator/RegionLessonConfigurator";
-import LessonLocationHeader from "../../components/lesson/LessonLocationHeader";
-import LessonGenericFooter from "../../components/lesson/LessonGenericFooter";
-import MapRegions from "../../components/maps/MapRegions";
-import Lesson from "../../components/lesson/Lesson";
+import LessonLocationHeader from "../../components/Lesson/LessonLocationHeader";
+import LessonGenericFooter from "../../components/Lesson/LessonGenericFooter";
+import MapRegions from "../../components/Maps/MapRegions";
+import Lesson from "../../components/Lesson/Lesson";
 import Region from "../../lib/Region";
 
 function RegionsLocationLesson(props) {

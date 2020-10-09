@@ -15,7 +15,7 @@ export function moveOnToNextLessonStep(prevState) {
         if (prevState.known.length > prevState.phaseCount) { // next question
             const phaseCount = 1 + prevState.phaseCount;
             return { phaseCount, game: { ...prevState.game, step: STEP_PROMPT, current: prevState.known[phaseCount - 1] } };
-        } else if (0 === prevState.entities.length) { // lesson finished
+        } else if (0 === prevState.entities.length) { // Lesson finished
             return { finished: true };
         } else { // move on to indication mode
             const nextState = { phaseCount: 0, game: { ...prevState.game, step: STEP_INDICATION } };

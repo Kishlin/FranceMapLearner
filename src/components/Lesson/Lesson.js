@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import {moveOnToNextLessonStep} from "../../helpers/moveOnToNextLessonStep";
-import Game from "../game/Game";
+import Game from "../Game/Game";
 
 function Lesson(props) {
     return <Game {...props} moveOnToNextStep={moveOnToNextLessonStep} />;

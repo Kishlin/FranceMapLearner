@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { computePromptCount, useCheckboxState, useSliderState, useNumberState } from "../../helpers";
-import IndicationCountPicker from "../../components/configuration/IndicationCountPicker";
-import ConfiguratorTitle from "../../components/configuration/ConfiguratorTitle";
-import AnswerTimePicker from "../../components/configuration/AnswerTimePicker";
-import RegionCountInfo from "../../components/configuration/RegionCountInfo";
-import AskAgainKnown from "../../components/configuration/AskAgainKnown";
-import Configurator from "../../components/configuration/Configurator";
-import GoButtonBox from "../../components/configuration/GoButtonBox";
+import IndicationCountPicker from "../../components/Configuration/IndicationCountPicker";
+import ConfiguratorTitle from "../../components/Configuration/ConfiguratorTitle";
+import AnswerTimePicker from "../../components/Configuration/AnswerTimePicker";
+import RegionCountInfo from "../../components/Configuration/RegionCountInfo";
+import AskAgainKnown from "../../components/Configuration/AskAgainKnown";
+import Configurator from "../../components/Configuration/Configurator";
+import GoButtonBox from "../../components/Configuration/GoButtonBox";
 import Region from "../../lib/Region";
 import {
     ASK_AGAIN_KNOWN_IN_LESSON,

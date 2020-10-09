@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import RegionQuizzConfigurator from "../configurator/RegionQuizzConfigurator";
-import QuizLocationHeader from "../../components/quizz/QuizLocationHeader";
-import QuizGenericFooter from "../../components/quizz/QuizGenericFooter";
-import MapRegions from "../../components/maps/MapRegions";
-import Quiz from "../../components/quizz/Quiz";
+import QuizLocationHeader from "../../components/Quizz/QuizLocationHeader";
+import QuizGenericFooter from "../../components/Quizz/QuizGenericFooter";
+import MapRegions from "../../components/Maps/MapRegions";
+import Quiz from "../../components/Quizz/Quiz";
 import Region from "../../lib/Region";
 
 function RegionLocationQuiz(props) {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { STEP_ANSWER, STEP_INDICATION } from "../../constants/GameSteps";
 import {computeStats} from "../../helpers/computeStats";
 import ScoreScreen from "../ScoreScreen/ScoreScreen";
-import Loading from "../loading/Loading";
+import Loading from "../Loading/Loading";
 
 class Game extends React.Component {
     constructor(props) {

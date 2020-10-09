@@ -1,6 +1,6 @@
 import React from "react";
 
-import HomeButton from "../button/HomeButton";
+import HomeButton from "../Button/HomeButton";
 
 function Footer() {
     return (<div>

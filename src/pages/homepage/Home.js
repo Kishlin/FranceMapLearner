@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 
 import './Home.css';
 
-import LinkButton from "../../components/button/LinkButton";
+import LinkButton from "../../components/Button/LinkButton";
 
 function Home() {
     return (

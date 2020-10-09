@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { ANSWER_TIME_IN_SECONDS, CORRECTION_TIMEOUT, LOOP_COUNT_PER_QUIZZ } from "../../constants/Config";
-import QuizzLoopCountPicker from "../../components/configuration/QuizzLoopCountPicker";
-import ConfiguratorTitle from "../../components/configuration/ConfiguratorTitle";
-import AnswerTimePicker from "../../components/configuration/AnswerTimePicker";
-import RegionCountInfo from "../../components/configuration/RegionCountInfo";
-import Configurator from "../../components/configuration/Configurator";
-import GoButtonBox from "../../components/configuration/GoButtonBox";
+import QuizzLoopCountPicker from "../../components/Configuration/QuizzLoopCountPicker";
+import ConfiguratorTitle from "../../components/Configuration/ConfiguratorTitle";
+import AnswerTimePicker from "../../components/Configuration/AnswerTimePicker";
+import RegionCountInfo from "../../components/Configuration/RegionCountInfo";
+import Configurator from "../../components/Configuration/Configurator";
+import GoButtonBox from "../../components/Configuration/GoButtonBox";
 import { useNumberState } from "../../helpers";
 import Region from "../../lib/Region";
 
