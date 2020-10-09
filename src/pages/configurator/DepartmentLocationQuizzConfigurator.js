@@ -4,15 +4,17 @@ import { Box, Checkbox, FormControlLabel, Grid, Input } from "@material-ui/core"
 
 import "./Configurator.css";
 
-import {useNumberState, useObjectState } from "../../helpers";
+import {ANSWER_TIME_IN_SECONDS, CORRECTION_TIMEOUT, LOOP_COUNT_PER_QUIZZ} from "../../constants/Config";
 import PrimaryButton from "../../components/button/PrimaryButton";
+import {shuffle, useNumberState, useObjectState} from "../../helpers";
 import HomeButton from "../../components/button/HomeButton";
 import FormTitle from "../../components/title/FormTitle";
+import Department from "../../lib/Department";
 import Region from "../../lib/Region";
 
 function DepartmentLocationQuizzConfigurator(props) {
-    const [answerTime, handleAnswerTimeChange] = useNumberState(props.answerTime);
-    const [loopCount, handleLoopCountChange] = useNumberState(props.loopCount);
+    const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
+    const [loopCount, handleLoopCountChange] = useNumberState(LOOP_COUNT_PER_QUIZZ);
 
     const baseRegionSelect = {};
     props.regions.forEach(region => baseRegionSelect[region.id] = false);
@@ -26,7 +28,10 @@ function DepartmentLocationQuizzConfigurator(props) {
 
     const inputProps = { step: 1, min: 1, max: 99, type: 'number', 'aria-labelledby': 'label-answer-time' };
 
-    const buttonHandler = () => props.onSubmit(loopCount, answerTime, regionSelect);
+    const buttonHandler = () => {
+        const entities = shuffle(props.departments.filter(department => regionSelect[department.region]))
+        props.onSubmit({ loopCount, answerTime, regionSelect, answerTimeout: CORRECTION_TIMEOUT }, entities);
+    };
 
     const regionCheckboxList = props.regions.map(region => {
         const label = `${region.name} (${region.departmentCount})`;
@@ -75,9 +80,8 @@ function DepartmentLocationQuizzConfigurator(props) {
 }
 
 DepartmentLocationQuizzConfigurator.propTypes = {
+    departments: PropTypes.arrayOf(PropTypes.instanceOf(Department)).isRequired,
     regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
-    answerTime: PropTypes.number.isRequired,
-    loopCount: PropTypes.number.isRequired,
     onSubmit: PropTypes.func.isRequired,
 };
 

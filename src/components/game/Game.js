@@ -5,28 +5,28 @@ import { STEP_ANSWER, STEP_INDICATION } from "../../constants/GameSteps";
 import {computeStats} from "../../helpers/computeStats";
 import ScoreScreen from "../ScoreScreen/ScoreScreen";
 import Loading from "../loading/Loading";
-import Entity from "../../lib/Entity";
 
 class Game extends React.Component {
     constructor(props) {
         super(props);
 
-        const entities = props.entities;
         const game = { configuration: undefined } ;
         const stats = { score: 0, max: 0, table: {} };
-        entities.forEach(entity => stats.table[entity.id] = { name: entity.name, prompted: 0, gotRight: 0 });
 
-        this.state = { phaseCount: 0, known: [], entities: entities, game, stats };
+        this.state = { phaseCount: 0, known: [], game, stats };
 
         this.nextStep = this.nextStep.bind(this);
         this.onAnswer = this.onAnswer.bind(this);
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
     }
 
-    onConfigurationSubmit(configuration) {
-        const updateState = state => ({
-            game: { ...state.game, configuration }
-        });
+    onConfigurationSubmit(configuration, entities) {
+        const updateState = state => {
+            const stats = state.stats;
+            entities.forEach(entity => stats.table[entity.id] = { name: entity.name, prompted: 0, gotRight: 0 });
+
+            return { ...state, stats, entities, game: { ...state.game, configuration } };
+        };
 
         this.setState(updateState, this.nextStep);
     }
@@ -77,7 +77,6 @@ class Game extends React.Component {
 }
 
 Game.propTypes = {
-    entities: PropTypes.arrayOf(PropTypes.instanceOf(Entity)).isRequired,
     renderConfiguration: PropTypes.func.isRequired,
     moveOnToNextStep: PropTypes.func.isRequired,
     renderGame: PropTypes.func.isRequired,

@@ -10,7 +10,7 @@ import Region from "../../lib/Region";
 
 function RegionsLocationLesson(props) {
     const renderConfiguration = onSubmit => (
-        <RegionLocationLessonConfigurator max={props.regions.length} onSubmit={onSubmit} />
+        <RegionLocationLessonConfigurator onSubmit={onSubmit} regions={props.regions} />
     );
 
     const renderLesson = (game, stats, moveOnToNextStep, onAnswer) => (
@@ -21,7 +21,7 @@ function RegionsLocationLesson(props) {
         </>
     );
 
-    return <Lesson entities={props.regions} renderGame={renderLesson} renderConfiguration={renderConfiguration} />;
+    return <Lesson renderGame={renderLesson} renderConfiguration={renderConfiguration} />;
 }
 
 RegionsLocationLesson.propTypes = {

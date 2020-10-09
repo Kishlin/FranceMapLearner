@@ -14,26 +14,28 @@ import {
     CORRECTION_TIMEOUT,
     REGIONS_INDICATIONS_COUNT
 } from "../../constants/Config";
+import Region from "../../lib/Region";
 
 function RegionLocationLessonConfigurator(props) {
     const [indicationCountPerSet, handleSliderChange, handleInputChange] = useSliderState(REGIONS_INDICATIONS_COUNT);
     const [askAgainKnown, handleAskAgainKnownChange] = useCheckboxState(ASK_AGAIN_KNOWN_IN_LESSON);
     const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
 
-    const questionCount = computeQuestionCount(askAgainKnown, indicationCountPerSet, props.max);
+    const regionsCount = props.regions.length;
+    const questionCount = computeQuestionCount(askAgainKnown, indicationCountPerSet, regionsCount);
 
-    const buttonHandler = () =>
-        props.onSubmit({ indicationCountPerSet, askAgainKnown, answerTime, answerTimeout: CORRECTION_TIMEOUT })
-    ;
+    const buttonHandler = () => props.onSubmit(
+        { indicationCountPerSet, askAgainKnown, answerTime, answerTimeout: CORRECTION_TIMEOUT }, props.regions
+    );
 
     const answerTimeInputProps = { step: 1, min: 1, max: 99, type: 'number', 'aria-labelledby': 'label-answer-time' };
-    const indicationCountProps = { step: 1, min: 1, max: props.max, type: 'number', 'aria-labelledby': 'label-indications' };
+    const indicationCountProps = { step: 1, min: 1, max: regionsCount, type: 'number', 'aria-labelledby': 'label-indications' };
 
     return (
         <Box className="configurator">
             <FormTitle>Learn the location of regions</FormTitle>
             <section>
-                <p>There are {props.max} regions.</p>
+                <p>There are {regionsCount} regions.</p>
             </section>
             <section>
                 <p id="label-indications">How many indications do you want before every prompt set?</p>
@@ -42,7 +44,7 @@ function RegionLocationLessonConfigurator(props) {
                         <Slider
                             min={1}
                             marks={true}
-                            max={props.max}
+                            max={regionsCount}
                             value={indicationCountPerSet}
                             onChange={handleSliderChange}
                             aria-labelledby="label-indications"
@@ -81,8 +83,8 @@ function RegionLocationLessonConfigurator(props) {
 }
 
 RegionLocationLessonConfigurator.propTypes = {
+    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     onSubmit: PropTypes.func.isRequired,
-    max: PropTypes.number.isRequired,
 };
 
 export default RegionLocationLessonConfigurator;
