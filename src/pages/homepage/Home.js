@@ -21,6 +21,7 @@ function Home() {
             <Grid item xs className="home-section">
                 <h1>Departments - Code</h1>
                 <LinkButton url="/learn/departments/code" text="Learn" />
+                <LinkButton url="/quizz/departments/code" text="Quizz" />
             </Grid>
         </Grid>
     );

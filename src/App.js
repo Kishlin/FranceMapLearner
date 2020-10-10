@@ -7,6 +7,7 @@ import DepartmentsLocationLesson from "./pages/lesson/DepartmentsLocationLesson"
 import DepartmentsLocationQuiz from "./pages/quizz/DepartmentsLocationQuizz";
 import DepartmentsCodeLesson from "./pages/lesson/DepartmentsCodeLesson";
 import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
+import DepartmentsCodeQuiz from "./pages/quizz/DepartmentsCodeQuizz";
 import RegionLocationQuiz from "./pages/quizz/RegionsLocationQuizz";
 import Home from "./pages/homepage/Home";
 
@@ -28,6 +29,9 @@ function App() {
                 </Route>
                 <Route path="/quizz/regions/location">
                     <RegionLocationQuiz regions={Regions} />
+                </Route>
+                <Route path="/quizz/departments/code">
+                    <DepartmentsCodeQuiz departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/quizz/departments/location">
                     <DepartmentsLocationQuiz departments={Departments} regions={Regions} />
