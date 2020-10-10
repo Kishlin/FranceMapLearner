@@ -11,3 +11,4 @@ export * from "./useObjectState";
 export * from "./useSliderState";
 export * from "./useNumberState";
 export * from "./useRegionSelectState";
+export * from "./useStringState";

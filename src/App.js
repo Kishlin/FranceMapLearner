@@ -5,6 +5,7 @@ import './App.css';
 
 import DepartmentsLocationLesson from "./pages/lesson/DepartmentsLocationLesson";
 import DepartmentsLocationQuiz from "./pages/quizz/DepartmentsLocationQuizz";
+import DepartmentsCodeLesson from "./pages/lesson/DepartmentsCodeLesson";
 import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
 import RegionLocationQuiz from "./pages/quizz/RegionsLocationQuizz";
 import Home from "./pages/homepage/Home";
@@ -18,6 +19,9 @@ function App() {
             <Switch>
                 <Route path="/learn/regions/location">
                     <RegionsLocationLesson regions={Regions} />
+                </Route>
+                <Route path="/learn/departments/code">
+                    <DepartmentsCodeLesson departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/learn/departments/location">
                     <DepartmentsLocationLesson departments={Departments} regions={Regions} />
