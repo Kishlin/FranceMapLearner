@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TextField } from "@material-ui/core";
 
-import DepartmentCodeBox from "./DepartmentCodeBox";
+import DepartmentBox from "./DepartmentBox";
 import PrimaryButton from "../Button/PrimaryButton";
 import { useStringState } from "../../helpers";
 import Department from "../../lib/Department";
@@ -22,7 +22,7 @@ function DepartmentCodePrompt(props) {
     />;
 
     return (
-        <DepartmentCodeBox
+        <DepartmentBox
             upper={textField}
             lower={<PrimaryButton handler={handler} text="Submit" />}
         />

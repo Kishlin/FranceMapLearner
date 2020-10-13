@@ -4,18 +4,18 @@ import { Grid } from "@material-ui/core";
 
 import "./Department.css";
 
-function DepartmentCodeBox(props) {
+function DepartmentBox(props) {
     return (
-        <Grid container className="department-code-body">
+        <Grid container className="department-body">
             <Grid item xs={12}>{props.upper}</Grid>
             <Grid item xs={12}>{props.lower}</Grid>
         </Grid>
     );
 }
 
-DepartmentCodeBox.propTypes = {
+DepartmentBox.propTypes = {
     upper: PropTypes.object.isRequired,
     lower: PropTypes.object.isRequired,
 };
 
-export default DepartmentCodeBox;
+export default DepartmentBox;

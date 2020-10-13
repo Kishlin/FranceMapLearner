@@ -1,18 +1,18 @@
-.department-code-body {
+.department-body {
     margin: 3vh 0;
 }
 
-.department-code-body > div {
+.department-body > div {
     height: 7vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.department-code-body > div > p {
+.department-body > div > p {
     font-size: 1.5em;
 }
 
-.department-code-body > div > p.answer {
+.department-body > div > p.answer {
     color: rgb(44, 121, 42);
 }
