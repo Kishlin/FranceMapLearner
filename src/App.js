@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import './App.css';
 
 import DepartmentsLocationLesson from "./pages/lesson/DepartmentsLocationLesson";
+import DepartmentsPrefectureQuiz from "./pages/quizz/DepartmentsPrefectureQuizz";
 import DepartmentsLocationQuiz from "./pages/quizz/DepartmentsLocationQuizz";
 import DepartmentsCodeLesson from "./pages/lesson/DepartmentsCodeLesson";
 import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
@@ -35,6 +36,9 @@ function App() {
                 </Route>
                 <Route path="/quizz/departments/location">
                     <DepartmentsLocationQuiz departments={Departments} regions={Regions} />
+                </Route>
+                <Route path="/quizz/departments/prefecture">
+                    <DepartmentsPrefectureQuiz departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/home">
                     <Home />

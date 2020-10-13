@@ -23,6 +23,10 @@ function Home() {
                 <LinkButton url="/learn/departments/code" text="Learn" />
                 <LinkButton url="/quizz/departments/code" text="Quizz" />
             </Grid>
+            <Grid item xs className="home-section">
+                <h1>Departments - Prefecture</h1>
+                <LinkButton url="/quizz/departments/prefecture" text="Quizz" />
+            </Grid>
         </Grid>
     );
 }
