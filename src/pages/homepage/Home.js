@@ -24,7 +24,8 @@ function Home() {
                 <LinkButton url="/quizz/departments/code" text="Quizz" />
             </Grid>
             <Grid item xs className="home-section">
-                <h1>Departments - Prefecture</h1>
+                <h1>Depts - Prefecture</h1>
+                <LinkButton url="/learn/departments/prefecture" text="Learn" />
                 <LinkButton url="/quizz/departments/prefecture" text="Quizz" />
             </Grid>
         </Grid>
