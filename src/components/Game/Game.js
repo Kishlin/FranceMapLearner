@@ -14,10 +14,16 @@ class Game extends React.Component {
         const stats = { score: 0, max: 0, table: {} };
 
         this.state = { phaseCount: 0, known: [], game, stats };
+        this.answerTimeoutId = undefined;
 
         this.nextStep = this.nextStep.bind(this);
         this.onAnswer = this.onAnswer.bind(this);
+        this.onAnswerTimeout = this.onAnswerTimeout.bind(this);
         this.onConfigurationSubmit = this.onConfigurationSubmit.bind(this);
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.answerTimeoutId);
     }
 
     onConfigurationSubmit(configuration, entities) {
@@ -49,7 +55,12 @@ class Game extends React.Component {
             stats
         }));
 
-        setTimeout(() => this.nextStep(), this.state.game.configuration.answerTimeout);
+        this.answerTimeoutId = setTimeout(this.onAnswerTimeout, this.state.game.configuration.answerTimeout);
+    }
+
+    onAnswerTimeout() {
+        this.answerTimeoutId = undefined;
+        this.nextStep();
     }
 
     nextStep() {
