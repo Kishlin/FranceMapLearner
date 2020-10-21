@@ -11,6 +11,7 @@ import RegionsLocationLesson from "./pages/regionsLocation/RegionsLocationLesson
 import DepartmentsCodeLesson from "./pages/departmentsCode/DepartmentsCodeLesson";
 import DepartmentsCodeQuiz from "./pages/departmentsCode/DepartmentsCodeQuizz";
 import RegionLocationQuiz from "./pages/regionsLocation/RegionsLocationQuizz";
+import DepartmentsMap from "./pages/map/DepartmentsMap";
 import Home from "./pages/homepage/Home";
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
 
                 <Route exact path="/departments/prefecture/learn" component={DepartmentsPrefectureLesson} />
                 <Route exact path="/departments/prefecture/quizz" component={DepartmentsPrefectureQuiz} />
+
+                <Route exact path="/maps/departments" component={DepartmentsMap} />
 
                 <Route exact path="/home" component={Home} />
 
