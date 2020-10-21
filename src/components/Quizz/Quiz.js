@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import {moveOnToNextQuestion} from "../../helpers/moveOnToNextQuestion";
+import { moveOnToNextQuestion, computeAnswerId } from "../../helpers";
 import Game from "../Game/Game";
 
 function Quiz(props) {
@@ -10,7 +10,12 @@ function Quiz(props) {
 
 Quiz.propTypes = {
     renderConfiguration: PropTypes.func.isRequired,
+    computeAnswer: PropTypes.func.isRequired,
     renderGame: PropTypes.func.isRequired,
+};
+
+Quiz.defaultProps = {
+    computeAnswer: computeAnswerId,
 };
 
 export default Quiz;

@@ -5,6 +5,7 @@ import DepartmentPrefectureBody from "../../components/Department/DepartmentPref
 import DepartmentQuizzConfigurator from "../configurator/DepartmentQuizzConfigurator";
 import QuizPrefectureHeader from "../../components/Quizz/QuizPrefectureHeader";
 import QuizGenericFooter from "../../components/Quizz/QuizGenericFooter";
+import { computeAnswerPrefecture } from "../../helpers";
 import Quiz from "../../components/Quizz/Quiz";
 
 function DepartmentsPrefectureQuiz() {
@@ -18,7 +19,11 @@ function DepartmentsPrefectureQuiz() {
         </Box>
     );
 
-    return <Quiz renderGame={renderQuizz} renderConfiguration={renderConfiguration} />;
+    return <Quiz
+        renderGame={renderQuizz}
+        renderConfiguration={renderConfiguration}
+        computeAnswer={computeAnswerPrefecture}
+    />;
 }
 
 export default DepartmentsPrefectureQuiz;

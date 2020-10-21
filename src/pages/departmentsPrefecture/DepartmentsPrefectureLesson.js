@@ -4,6 +4,7 @@ import DepartmentPrefectureBody from "../../components/Department/DepartmentPref
 import DepartmentLessonConfigurator from "../configurator/DepartmentLessonConfigurator";
 import LessonPrefectureHeader from "../../components/Lesson/LessonPrefectureHeader";
 import LessonGenericFooter from "../../components/Lesson/LessonGenericFooter";
+import { computeAnswerPrefecture } from "../../helpers";
 import Lesson from "../../components/Lesson/Lesson";
 import { Box } from "@material-ui/core";
 
@@ -18,7 +19,11 @@ function DepartmentsPrefectureLesson() {
         </Box>
     );
 
-    return <Lesson renderGame={renderLesson} renderConfiguration={renderConfiguration} />;
+    return <Lesson
+        renderGame={renderLesson}
+        renderConfiguration={renderConfiguration}
+        computeAnswer={computeAnswerPrefecture}
+    />;
 }
 
 export default DepartmentsPrefectureLesson;

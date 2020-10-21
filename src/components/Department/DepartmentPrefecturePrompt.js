@@ -6,25 +6,15 @@ import PrimaryButton from "../Button/PrimaryButton";
 import { useStringState } from "../../helpers";
 import Department from "../../lib/Department";
 import DepartmentBox from "./DepartmentBox";
-import { Departments } from "../../data";
 
 function DepartmentPrefecturePrompt(props) {
-    const onSubmit = value => {
-        const match = Departments.find(
-            department => department.slug === value
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f\s\t]/g, "")
-        );
-
-        props.onAnswer(undefined === match ? undefined : match.id);
-    }
-
     const [prefecture, onPrefectureChange] = useStringState('');
-    const handler = () => onSubmit(prefecture);
+
+    const onAnswerHandler = () => props.onAnswer(prefecture);
+
     const onKeyDown = ({ keyCode }) => {
         if (13 === keyCode) {
-            onSubmit(prefecture);
+            onAnswerHandler(prefecture);
         }
     };
 
@@ -36,7 +26,7 @@ function DepartmentPrefecturePrompt(props) {
     return (
         <DepartmentBox
             upper={textField}
-            lower={<PrimaryButton handler={handler} text="Submit" />}
+            lower={<PrimaryButton handler={onAnswerHandler} text="Submit" />}
         />
     );
 }

@@ -44,11 +44,9 @@ class Game extends React.Component {
             return;
         }
 
-        const expected = this.state.game.current.id;
-        const isRight = value === expected;
-
-        const answer = { given: value, expected, isRight };
-        const stats = computeStats(this.state.stats, expected, isRight);
+        const current = this.state.game.current;
+        const answer = this.props.computeAnswer(current, value);
+        const stats = computeStats(this.state.stats, current.id, answer.isRight);
 
         this.setState(state => ({
             game: { ...state.game, step: STEP_ANSWER, answer },
@@ -90,6 +88,7 @@ class Game extends React.Component {
 Game.propTypes = {
     renderConfiguration: PropTypes.func.isRequired,
     moveOnToNextStep: PropTypes.func.isRequired,
+    computeAnswer: PropTypes.func.isRequired,
     renderGame: PropTypes.func.isRequired,
 }
 

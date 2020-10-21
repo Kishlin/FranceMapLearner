@@ -1,8 +1,12 @@
+export * from "./computeAnswerId";
+export * from "./computeAnswerPrefecture";
+
 export * from "./computeIndicationMax";
-
 export * from "./computeMapItemClass";
-
 export * from "./computePromptCount";
+
+export * from "./moveOnToNextLessonStep";
+export * from "./moveOnToNextQuestion";
 
 export * from "./shuffle";
 
