@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Box} from "@material-ui/core";
 
 import DepartmentLessonConfigurator from "../configurator/DepartmentLessonConfigurator";
@@ -7,13 +6,9 @@ import DepartmentCodeBody from "../../components/Department/DepartmentCodeBody";
 import LessonGenericFooter from "../../components/Lesson/LessonGenericFooter";
 import LessonCodeHeader from "../../components/Lesson/LessonCodeHeader";
 import Lesson from "../../components/Lesson/Lesson";
-import Department from "../../lib/Department";
-import Region from "../../lib/Region";
 
-function DepartmentsCodeLesson(props) {
-    const renderConfiguration = onSubmit => (
-        <DepartmentLessonConfigurator onSubmit={onSubmit} {...props} />
-    );
+function DepartmentsCodeLesson() {
+    const renderConfiguration = onSubmit => <DepartmentLessonConfigurator onSubmit={onSubmit} />;
 
     const renderLesson = (game, stats, moveOnToNextStep, onAnswer) => (
         <Box style={{ minWidth: '30vw' }}>
@@ -25,10 +20,5 @@ function DepartmentsCodeLesson(props) {
 
     return <Lesson renderGame={renderLesson} renderConfiguration={renderConfiguration} />;
 }
-
-DepartmentsCodeLesson.propTypes = {
-    departments: PropTypes.arrayOf(PropTypes.instanceOf(Department)).isRequired,
-    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
-};
 
 export default DepartmentsCodeLesson;

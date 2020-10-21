@@ -13,40 +13,24 @@ import DepartmentsCodeQuiz from "./pages/departmentsCode/DepartmentsCodeQuizz";
 import RegionLocationQuiz from "./pages/regionsLocation/RegionsLocationQuizz";
 import Home from "./pages/homepage/Home";
 
-import Departments from "./data/Departments";
-import Regions  from "./data/Regions";
-
 function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/regions/location/learn">
-                    <RegionsLocationLesson regions={Regions} />
-                </Route>
-                <Route path="/regions/location/quizz">
-                    <RegionLocationQuiz regions={Regions} />
-                </Route>
-                <Route path="/departments/code/learn">
-                    <DepartmentsCodeLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/departments/code/quizz">
-                    <DepartmentsCodeQuiz departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/departments/location/learn">
-                    <DepartmentsLocationLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/departments/location/quizz">
-                    <DepartmentsLocationQuiz departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/departments/prefecture/learn">
-                    <DepartmentsPrefectureLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/departments/prefecture/quizz">
-                    <DepartmentsPrefectureQuiz departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/home">
-                    <Home />
-                </Route>
+                <Route exact path="/regions/location/learn" component={RegionsLocationLesson} />
+                <Route exact path="/regions/location/quizz" component={RegionLocationQuiz} />
+
+                <Route exact path="/departments/code/learn" component={DepartmentsCodeLesson} />
+                <Route exact path="/departments/code/quizz" component={DepartmentsCodeQuiz} />
+
+                <Route exact path="/departments/location/learn" component={DepartmentsLocationLesson} />
+                <Route exact path="/departments/location/quizz" component={DepartmentsLocationQuiz} />
+
+                <Route exact path="/departments/prefecture/learn" component={DepartmentsPrefectureLesson} />
+                <Route exact path="/departments/prefecture/quizz" component={DepartmentsPrefectureQuiz} />
+
+                <Route exact path="/home" component={Home} />
+
                 <Redirect strict from="/" to="/home" />
             </Switch>
         </Router>

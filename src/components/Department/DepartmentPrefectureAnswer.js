@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TextField } from "@material-ui/core";
 
 import DepartmentBox from "./DepartmentBox";
-import Departments from "../../data/Departments";
+import { Departments } from "../../data";
 
 function DepartmentPrefectureAnswer(props) {
     const getPrefectureForId = id => {

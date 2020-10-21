@@ -9,18 +9,16 @@ import RegionCountInfo from "../../components/Configuration/RegionCountInfo";
 import Configurator from "../../components/Configuration/Configurator";
 import GoButtonBox from "../../components/Configuration/GoButtonBox";
 import { useNumberState } from "../../helpers";
-import Region from "../../lib/Region";
+import { Regions } from "../../data";
 
 function RegionQuizzConfigurator(props) {
     const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
     const [loopCount, handleLoopCountChange] = useNumberState(LOOP_COUNT_PER_QUIZZ);
 
-    const regionsCount = props.regions.length;
+    const regionsCount = Regions.length;
     const promptCount = loopCount * regionsCount;
 
-    const goButtonHandler = () => props.onSubmit(
-        { loopCount, answerTime, answerTimeout: CORRECTION_TIMEOUT }, props.regions
-    );
+    const goButtonHandler = () => props.onSubmit({ loopCount, answerTime, answerTimeout: CORRECTION_TIMEOUT }, Regions);
 
     return (
         <Configurator>
@@ -34,7 +32,6 @@ function RegionQuizzConfigurator(props) {
 }
 
 RegionQuizzConfigurator.propTypes = {
-    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     onSubmit: PropTypes.func.isRequired,
 };
 

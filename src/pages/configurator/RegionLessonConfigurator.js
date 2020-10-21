@@ -9,7 +9,7 @@ import RegionCountInfo from "../../components/Configuration/RegionCountInfo";
 import AskAgainKnown from "../../components/Configuration/AskAgainKnown";
 import Configurator from "../../components/Configuration/Configurator";
 import GoButtonBox from "../../components/Configuration/GoButtonBox";
-import Region from "../../lib/Region";
+import { Regions } from "../../data";
 import {
     ASK_AGAIN_KNOWN_IN_LESSON,
     REGIONS_INDICATIONS_COUNT,
@@ -22,11 +22,11 @@ function RegionLessonConfigurator(props) {
     const [askAgainKnown, handleAskAgainKnownChange] = useCheckboxState(ASK_AGAIN_KNOWN_IN_LESSON);
     const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
 
-    const regionsCount = props.regions.length;
+    const regionsCount = Regions.length;
     const promptCount = computePromptCount(askAgainKnown, indicationCountPerSet, regionsCount);
 
     const goButtonHandler = () => props.onSubmit(
-        { indicationCountPerSet, askAgainKnown, answerTime, answerTimeout: CORRECTION_TIMEOUT }, props.regions
+        { indicationCountPerSet, askAgainKnown, answerTime, answerTimeout: CORRECTION_TIMEOUT }, Regions
     );
 
     return (
@@ -42,7 +42,6 @@ function RegionLessonConfigurator(props) {
 }
 
 RegionLessonConfigurator.propTypes = {
-    regions: PropTypes.arrayOf(PropTypes.instanceOf(Region)).isRequired,
     onSubmit: PropTypes.func.isRequired,
 };
 

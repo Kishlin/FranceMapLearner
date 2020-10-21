@@ -1,6 +1,6 @@
 import Region from "../lib/Region";
 
-const Regions = [
+export const Regions = [
     new Region(0, "Grand Est", "Stasbourg", 10),
     new Region(1, "Hauts de France", "Lille", 5),
     new Region(2, "Ile de France", "Paris", 8),
@@ -15,5 +15,3 @@ const Regions = [
     new Region(11, "Provence - Alpes - Côte d'Azur", "Marseille", 6),
     new Region(12, "Corse", "Ajaccio", 2),
 ];
-
-export default Regions;

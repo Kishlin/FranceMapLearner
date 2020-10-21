@@ -1,6 +1,6 @@
 import Department from "../lib/Department";
 
-const Departments = [
+export const Departments = [
     new Department(8, "Ardennes", "Charleville-Mézières", "charlevillemezieres", 0),
     new Department(10, "Aube", "Troyes", "troyes", 0),
     new Department(51, "Marne", "Châlons-en-Champagne", "chalonsenchampagne", 0),
@@ -98,5 +98,3 @@ const Departments = [
     new Department('2A', "Corse-du-Sud", "Ajaccio", "ajaccio", 12),
     new Department('2B', "Haute-Corse", "Bastia", "bastia", 12),
 ];
-
-export default Departments;

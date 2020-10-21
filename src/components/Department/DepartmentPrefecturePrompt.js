@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { TextField } from "@material-ui/core";
 
 import PrimaryButton from "../Button/PrimaryButton";
-import Departments from "../../data/Departments";
 import { useStringState } from "../../helpers";
 import Department from "../../lib/Department";
 import DepartmentBox from "./DepartmentBox";
+import { Departments } from "../../data";
 
 function DepartmentPrefecturePrompt(props) {
     const onSubmit = value => {
