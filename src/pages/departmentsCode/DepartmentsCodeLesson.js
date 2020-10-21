@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Box} from "@material-ui/core";
 
 import DepartmentLessonConfigurator from "../configurator/DepartmentLessonConfigurator";
 import DepartmentCodeBody from "../../components/Department/DepartmentCodeBody";
@@ -8,7 +9,6 @@ import LessonCodeHeader from "../../components/Lesson/LessonCodeHeader";
 import Lesson from "../../components/Lesson/Lesson";
 import Department from "../../lib/Department";
 import Region from "../../lib/Region";
-import {Box} from "@material-ui/core";
 
 function DepartmentsCodeLesson(props) {
     const renderConfiguration = onSubmit => (

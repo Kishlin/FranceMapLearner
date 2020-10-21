@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import './App.css';
 
-import DepartmentsPrefectureLesson from "./pages/lesson/DepartmentsPrefectureLesson";
-import DepartmentsLocationLesson from "./pages/lesson/DepartmentsLocationLesson";
-import DepartmentsPrefectureQuiz from "./pages/quizz/DepartmentsPrefectureQuizz";
-import DepartmentsLocationQuiz from "./pages/quizz/DepartmentsLocationQuizz";
-import DepartmentsCodeLesson from "./pages/lesson/DepartmentsCodeLesson";
-import RegionsLocationLesson from "./pages/lesson/RegionsLocationLesson";
-import DepartmentsCodeQuiz from "./pages/quizz/DepartmentsCodeQuizz";
-import RegionLocationQuiz from "./pages/quizz/RegionsLocationQuizz";
+import DepartmentsPrefectureLesson from "./pages/departmentsPrefecture/DepartmentsPrefectureLesson";
+import DepartmentsPrefectureQuiz from "./pages/departmentsPrefecture/DepartmentsPrefectureQuizz";
+import DepartmentsLocationLesson from "./pages/departmentsLocation/DepartmentsLocationLesson";
+import DepartmentsLocationQuiz from "./pages/departmentsLocation/DepartmentsLocationQuizz";
+import RegionsLocationLesson from "./pages/regionsLocation/RegionsLocationLesson";
+import DepartmentsCodeLesson from "./pages/departmentsCode/DepartmentsCodeLesson";
+import DepartmentsCodeQuiz from "./pages/departmentsCode/DepartmentsCodeQuizz";
+import RegionLocationQuiz from "./pages/regionsLocation/RegionsLocationQuizz";
 import Home from "./pages/homepage/Home";
 
 import Departments from "./data/Departments";
@@ -20,28 +20,28 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/learn/regions/location">
+                <Route path="/regions/location/learn">
                     <RegionsLocationLesson regions={Regions} />
                 </Route>
-                <Route path="/learn/departments/code">
-                    <DepartmentsCodeLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/learn/departments/location">
-                    <DepartmentsLocationLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/learn/departments/prefecture">
-                    <DepartmentsPrefectureLesson departments={Departments} regions={Regions} />
-                </Route>
-                <Route path="/quizz/regions/location">
+                <Route path="/regions/location/quizz">
                     <RegionLocationQuiz regions={Regions} />
                 </Route>
-                <Route path="/quizz/departments/code">
+                <Route path="/departments/code/learn">
+                    <DepartmentsCodeLesson departments={Departments} regions={Regions} />
+                </Route>
+                <Route path="/departments/code/quizz">
                     <DepartmentsCodeQuiz departments={Departments} regions={Regions} />
                 </Route>
-                <Route path="/quizz/departments/location">
+                <Route path="/departments/location/learn">
+                    <DepartmentsLocationLesson departments={Departments} regions={Regions} />
+                </Route>
+                <Route path="/departments/location/quizz">
                     <DepartmentsLocationQuiz departments={Departments} regions={Regions} />
                 </Route>
-                <Route path="/quizz/departments/prefecture">
+                <Route path="/departments/prefecture/learn">
+                    <DepartmentsPrefectureLesson departments={Departments} regions={Regions} />
+                </Route>
+                <Route path="/departments/prefecture/quizz">
                     <DepartmentsPrefectureQuiz departments={Departments} regions={Regions} />
                 </Route>
                 <Route path="/home">

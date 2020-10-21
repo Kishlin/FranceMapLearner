@@ -10,23 +10,23 @@ function Home() {
         <Grid container id="home">
             <Grid item xs className="home-section">
                 <h1>Regions - Map</h1>
-                <LinkButton url="/learn/regions/location" text="Learn" />
-                <LinkButton url="/quizz/regions/location" text="Quizz" />
+                <LinkButton url="/regions/location/learn" text="Learn" />
+                <LinkButton url="/regions/location/quizz" text="Quizz" />
             </Grid>
             <Grid item xs className="home-section">
                 <h1>Departments - Map</h1>
-                <LinkButton url="/learn/departments/location" text="Learn" />
-                <LinkButton url="/quizz/departments/location" text="Quizz" />
+                <LinkButton url="/departments/location/learn" text="Learn" />
+                <LinkButton url="/departments/location/quizz" text="Quizz" />
             </Grid>
             <Grid item xs className="home-section">
                 <h1>Departments - Code</h1>
-                <LinkButton url="/learn/departments/code" text="Learn" />
-                <LinkButton url="/quizz/departments/code" text="Quizz" />
+                <LinkButton url="/departments/code/learn" text="Learn" />
+                <LinkButton url="/departments/code/quizz" text="Quizz" />
             </Grid>
             <Grid item xs className="home-section">
                 <h1>Depts - Prefecture</h1>
-                <LinkButton url="/learn/departments/prefecture" text="Learn" />
-                <LinkButton url="/quizz/departments/prefecture" text="Quizz" />
+                <LinkButton url="/departments/prefecture/learn" text="Learn" />
+                <LinkButton url="/departments/prefecture/quizz" text="Quizz" />
             </Grid>
         </Grid>
     );
