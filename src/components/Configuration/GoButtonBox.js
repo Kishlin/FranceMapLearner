@@ -9,7 +9,7 @@ function GoButtonBox(props) {
     return (
         <section>
             <Grid container spacing={2} alignItems="center">
-                <Grid item><PrimaryButton disabled={0 === props.promptCount} handler={props.goButtonHandler} /></Grid>
+                <Grid item><PrimaryButton disabled={0 === props.promptCount} handler={props.goButtonHandler} autofocus={true} /></Grid>
                 <Grid item><HomeButton /></Grid>
             </Grid>
         </section>

@@ -8,7 +8,7 @@ import PrimaryButton from "../Button/PrimaryButton";
 const LessonGenericFooter = function (props) {
     const getContent = function(props) {
         if (STEP_INDICATION === props.game.step) {
-            return <PrimaryButton handler={props.moveOnToNextStep} text={"OK"}/>;
+            return <PrimaryButton handler={props.moveOnToNextStep} text={"OK"} autofocus={true} />;
         } else if (STEP_PROMPT === props.game.step) {
             return <CountdownProgressBar
                 key={props.game.current.id}
