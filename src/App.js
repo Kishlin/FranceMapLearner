@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import './App.css';
 
+import DepartmentsPrefectureReverseQuizz from "./pages/departmentsPrefecture/DepartmentsPrefectureReverseQuizz";
 import DepartmentsPrefectureLesson from "./pages/departmentsPrefecture/DepartmentsPrefectureLesson";
 import DepartmentsPrefectureQuiz from "./pages/departmentsPrefecture/DepartmentsPrefectureQuizz";
+import DepartmentsCodeReverseQuizz from "./pages/departmentsCode/DepartmentsCodeReverseQuizz";
 import DepartmentsLocationLesson from "./pages/departmentsLocation/DepartmentsLocationLesson";
 import DepartmentsLocationQuiz from "./pages/departmentsLocation/DepartmentsLocationQuizz";
 import RegionsLocationLesson from "./pages/regionsLocation/RegionsLocationLesson";
@@ -23,12 +25,14 @@ function App() {
 
                 <Route exact path="/departments/code/learn" component={DepartmentsCodeLesson} />
                 <Route exact path="/departments/code/quizz" component={DepartmentsCodeQuiz} />
+                <Route exact path="/departments/code/rev-quizz" component={DepartmentsCodeReverseQuizz} />
 
                 <Route exact path="/departments/location/learn" component={DepartmentsLocationLesson} />
                 <Route exact path="/departments/location/quizz" component={DepartmentsLocationQuiz} />
 
                 <Route exact path="/departments/prefecture/learn" component={DepartmentsPrefectureLesson} />
                 <Route exact path="/departments/prefecture/quizz" component={DepartmentsPrefectureQuiz} />
+                <Route exact path="/departments/prefecture/rev-quizz" component={DepartmentsPrefectureReverseQuizz} />
 
                 <Route exact path="/maps/departments" component={DepartmentsMap} />
 

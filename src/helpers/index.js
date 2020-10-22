@@ -1,5 +1,6 @@
 export * from "./computeAnswerId";
 export * from "./computeAnswerPrefecture";
+export * from "./computeAnswerName";
 
 export * from "./computeIndicationMax";
 export * from "./computeMapItemClass";

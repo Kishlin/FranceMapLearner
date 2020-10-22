@@ -7,30 +7,42 @@ import LinkButton from "../../components/Button/LinkButton";
 
 function Home() {
     return (
-        <Grid container id="home">
-            <Grid item xs className="home-section">
+        <Grid container spacing={2} id="home">
+            <Grid item className="home-section">
                 <h1>Regions - Map</h1>
-                <LinkButton url="/regions/location/learn" text="Learn" />
-                <LinkButton url="/regions/location/quizz" text="Quizz" />
+                <Grid item xs className="home-button-box">
+                    <LinkButton url="/regions/location/learn" text="Learn" />
+                    <LinkButton url="/regions/location/quizz" text="Quizz" />
+                </Grid>
             </Grid>
-            <Grid item xs className="home-section">
+            <Grid item className="home-section">
                 <h1>Departments - Map</h1>
-                <LinkButton url="/departments/location/learn" text="Learn" />
-                <LinkButton url="/departments/location/quizz" text="Quizz" />
+                <Grid item xs className="home-button-box">
+                    <LinkButton url="/departments/location/learn" text="Learn" />
+                    <LinkButton url="/departments/location/quizz" text="Quizz" />
+                </Grid>
             </Grid>
-            <Grid item xs className="home-section">
+            <Grid item className="home-section">
                 <h1>Departments - Code</h1>
-                <LinkButton url="/departments/code/learn" text="Learn" />
-                <LinkButton url="/departments/code/quizz" text="Quizz" />
+                <Grid item xs className="home-button-box">
+                    <LinkButton url="/departments/code/learn" text="Learn" />
+                    <LinkButton url="/departments/code/quizz" text="Quizz" />
+                    <LinkButton url="/departments/code/rev-quizz" text="Reverse Quizz" />
+                </Grid>
             </Grid>
-            <Grid item xs className="home-section">
+            <Grid item className="home-section">
                 <h1>Depts - Prefecture</h1>
-                <LinkButton url="/departments/prefecture/learn" text="Learn" />
-                <LinkButton url="/departments/prefecture/quizz" text="Quizz" />
+                <Grid item xs className="home-button-box">
+                    <LinkButton url="/departments/prefecture/learn" text="Learn" />
+                    <LinkButton url="/departments/prefecture/quizz" text="Quizz" />
+                    <LinkButton url="/departments/prefecture/rev-quizz" text="Reverse Quizz" />
+                </Grid>
             </Grid>
-            <Grid item xs className="home-section">
+            <Grid item className="home-section">
                 <h1>Maps</h1>
-                <LinkButton url="/maps/departments" text="Departments Map" />
+                <Grid item xs className="home-button-box">
+                    <LinkButton url="/maps/departments" text="Departments Map" />
+                </Grid>
             </Grid>
         </Grid>
     );
