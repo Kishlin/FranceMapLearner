@@ -9,7 +9,7 @@ import { computeMapItemClass } from "../../helpers";
 
 function MapDepartments(props) {
 	return (
-		<svg /*ref={ref => this.map = ref}*/ version="1.1" width="597.6" height="670.7" viewBox="0 0 597.6 670.7" overflow="visible">
+		<svg id="map-departments" /*ref={ref => this.map = ref}*/ version="1.1" width="597.6" height="670.7" viewBox="0 0 597.6 670.7" overflow="visible">
 			{/*<g className="region region-01" data-name="Guadeloupe" data-insee="01">*/}
 			{/*	<path data-name="Guadeloupe" data-departmentnumber="971"*/}
 			{/*		  className="region-01 department department-971 department-guadeloupe"*/}

@@ -1,26 +1,26 @@
-svg {
+svg#map-regions {
     max-height: 80vh;
     max-width: 80vw;
 }
 
-svg g line, svg g polyline, svg g path.stroke {
+svg#map-regions g line, svg g polyline, svg g path.stroke {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-svg path.map-item-indicated {
+svg#map-regions path.map-item-indicated {
     fill: #6969FB;
 }
 
-svg path.map-item-correct {
+svg#map-regions path.map-item-correct {
     fill: #69FB69;
 }
 
-svg path.map-item-wrong {
+svg#map-regions path.map-item-wrong {
     fill: #FB6969;
 }
 
-svg path.map-item-blank {
+svg#map-regions path.map-item-blank {
     fill: #FBFAF9;
 }

@@ -12,7 +12,7 @@ function DepartmentsPrefectureQuiz() {
     const renderConfiguration = onSubmit => <DepartmentQuizzConfigurator onSubmit={onSubmit} />;
 
     const renderQuizz = (game, stats, moveOnToNextStep, onAnswer) => (
-        <Box style={{ minWidth: '30vw' }}>
+        <Box id="game">
             <QuizPrefectureHeader game={game} stats={stats} />
             <DepartmentPrefectureBody game={game} onAnswer={onAnswer} />
             <QuizGenericFooter game={game} moveOnToNextStep={moveOnToNextStep} onAnswer={onAnswer} />

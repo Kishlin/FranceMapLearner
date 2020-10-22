@@ -12,7 +12,7 @@ function DepartmentsCodeReverseQuizz() {
     const renderConfiguration = onSubmit => <DepartmentQuizzConfigurator onSubmit={onSubmit} />;
 
     const renderQuizz = (game, stats, moveOnToNextStep, onAnswer) => (
-        <Box style={{ minWidth: '30vw' }}>
+        <Box id="game">
             <QuizCodeHeaderReversed game={game} stats={stats} />
             <DepartmentNameBody game={game} onAnswer={onAnswer} />
             <QuizGenericFooter game={game} moveOnToNextStep={moveOnToNextStep} onAnswer={onAnswer} />

@@ -1,0 +1,7 @@
+div#game {
+    min-width: 30vw;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

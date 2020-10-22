@@ -1,31 +1,32 @@
-svg {
+svg#map-departments {
+    max-width: 90vw;
     max-height: 80vh;
-    max-width: 80vw;
+    transform: translateX(-50px);
 }
 
-svg g, svg g path {
+svg#map-departments g, svg g path {
     fill: #FBFAF9;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-svg g path {
+svg#map-departments g path {
     stroke: rgb(140, 162, 192);
 }
 
-svg g.region {
+svg#map-departments g.region {
     stroke: rgb(134, 220, 104);
 }
 
-svg g path.map-item-indicated {
+svg#map-departments g path.map-item-indicated {
     fill: #6969FB;
 }
 
-svg g path.map-item-correct {
+svg#map-departments g path.map-item-correct {
     fill: #69FB69;
 }
 
-svg g path.map-item-wrong {
+svg#map-departments g path.map-item-wrong {
     fill: #FB6969;
 }

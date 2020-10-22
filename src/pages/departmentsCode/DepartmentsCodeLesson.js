@@ -11,7 +11,7 @@ function DepartmentsCodeLesson() {
     const renderConfiguration = onSubmit => <DepartmentLessonConfigurator onSubmit={onSubmit} />;
 
     const renderLesson = (game, stats, moveOnToNextStep, onAnswer) => (
-        <Box style={{ minWidth: '30vw' }}>
+        <Box id="game">
             <LessonCodeHeader game={game} stats={stats} />
             <DepartmentCodeBody game={game} onAnswer={onAnswer} />
             <LessonGenericFooter game={game} moveOnToNextStep={moveOnToNextStep} onAnswer={onAnswer} />

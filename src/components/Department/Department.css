@@ -2,8 +2,15 @@
     margin: 3vh 0;
 }
 
+.department-body > div:first-child {
+    height: 125px;
+}
+
+.department-body > div:nth-child(2) {
+    height: 75px;
+}
+
 .department-body > div {
-    height: 7vh;
     display: flex;
     align-items: center;
     justify-content: center;

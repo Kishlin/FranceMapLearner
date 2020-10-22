@@ -24,6 +24,7 @@ function MapRegions(props) {
 
     return (
         <svg
+            id="map-regions"
             version="1.1"
             width="597.6"
             height="670.7"
