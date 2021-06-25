@@ -7,4 +7,5 @@ build:
 install:
 	docker-compose run node npm install
 
-.PHONY: run build
+.PHONY: run build install
+
