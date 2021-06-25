@@ -2,16 +2,16 @@ import React from "react";
 import { Box } from "@material-ui/core";
 
 import DepartmentPrefectureBody from "../../components/Department/DepartmentPrefectureBody";
-import DepartmentQuizzConfigurator from "../configurator/DepartmentQuizzConfigurator";
-import QuizPrefectureHeader from "../../components/Quizz/QuizPrefectureHeader";
-import QuizGenericFooter from "../../components/Quizz/QuizGenericFooter";
+import DepartmentQuizConfigurator from "../configurator/DepartmentQuizConfigurator";
+import QuizPrefectureHeader from "../../components/Quiz/QuizPrefectureHeader";
+import QuizGenericFooter from "../../components/Quiz/QuizGenericFooter";
 import { computeAnswerPrefecture } from "../../helpers";
-import Quiz from "../../components/Quizz/Quiz";
+import Quiz from "../../components/Quiz/Quiz";
 
 function DepartmentsPrefectureQuiz() {
-    const renderConfiguration = onSubmit => <DepartmentQuizzConfigurator onSubmit={onSubmit} />;
+    const renderConfiguration = onSubmit => <DepartmentQuizConfigurator onSubmit={onSubmit} />;
 
-    const renderQuizz = (game, stats, moveOnToNextStep, onAnswer) => (
+    const renderQuiz = (game, stats, moveOnToNextStep, onAnswer) => (
         <Box id="game">
             <QuizPrefectureHeader game={game} stats={stats} />
             <DepartmentPrefectureBody game={game} onAnswer={onAnswer} />
@@ -20,7 +20,7 @@ function DepartmentsPrefectureQuiz() {
     );
 
     return <Quiz
-        renderGame={renderQuizz}
+        renderGame={renderQuiz}
         renderConfiguration={renderConfiguration}
         computeAnswer={computeAnswerPrefecture}
     />;

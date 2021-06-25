@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import './App.css';
 
-import DepartmentsPrefectureReverseQuizz from "./pages/departmentsPrefecture/DepartmentsPrefectureReverseQuizz";
+import DepartmentsPrefectureReverseQuiz from "./pages/departmentsPrefecture/DepartmentsPrefectureReverseQuiz";
 import DepartmentsPrefectureLesson from "./pages/departmentsPrefecture/DepartmentsPrefectureLesson";
-import DepartmentsPrefectureQuiz from "./pages/departmentsPrefecture/DepartmentsPrefectureQuizz";
-import DepartmentsCodeReverseQuizz from "./pages/departmentsCode/DepartmentsCodeReverseQuizz";
+import DepartmentsPrefectureQuiz from "./pages/departmentsPrefecture/DepartmentsPrefectureQuiz";
+import DepartmentsCodeReverseQuiz from "./pages/departmentsCode/DepartmentsCodeReverseQuiz";
 import DepartmentsLocationLesson from "./pages/departmentsLocation/DepartmentsLocationLesson";
-import DepartmentsLocationQuiz from "./pages/departmentsLocation/DepartmentsLocationQuizz";
+import DepartmentsLocationQuiz from "./pages/departmentsLocation/DepartmentsLocationQuiz";
 import RegionsLocationLesson from "./pages/regionsLocation/RegionsLocationLesson";
 import DepartmentsCodeLesson from "./pages/departmentsCode/DepartmentsCodeLesson";
-import DepartmentsCodeQuiz from "./pages/departmentsCode/DepartmentsCodeQuizz";
-import RegionLocationQuiz from "./pages/regionsLocation/RegionsLocationQuizz";
+import DepartmentsCodeQuiz from "./pages/departmentsCode/DepartmentsCodeQuiz";
+import RegionLocationQuiz from "./pages/regionsLocation/RegionsLocationQuiz";
 import DepartmentsMap from "./pages/map/DepartmentsMap";
 import Home from "./pages/homepage/Home";
 
@@ -21,18 +21,18 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path="/regions/location/learn" component={RegionsLocationLesson} />
-                <Route exact path="/regions/location/quizz" component={RegionLocationQuiz} />
+                <Route exact path="/regions/location/quiz" component={RegionLocationQuiz} />
 
                 <Route exact path="/departments/code/learn" component={DepartmentsCodeLesson} />
-                <Route exact path="/departments/code/quizz" component={DepartmentsCodeQuiz} />
-                <Route exact path="/departments/code/rev-quizz" component={DepartmentsCodeReverseQuizz} />
+                <Route exact path="/departments/code/quiz" component={DepartmentsCodeQuiz} />
+                <Route exact path="/departments/code/rev-quiz" component={DepartmentsCodeReverseQuiz} />
 
                 <Route exact path="/departments/location/learn" component={DepartmentsLocationLesson} />
-                <Route exact path="/departments/location/quizz" component={DepartmentsLocationQuiz} />
+                <Route exact path="/departments/location/quiz" component={DepartmentsLocationQuiz} />
 
                 <Route exact path="/departments/prefecture/learn" component={DepartmentsPrefectureLesson} />
-                <Route exact path="/departments/prefecture/quizz" component={DepartmentsPrefectureQuiz} />
-                <Route exact path="/departments/prefecture/rev-quizz" component={DepartmentsPrefectureReverseQuizz} />
+                <Route exact path="/departments/prefecture/quiz" component={DepartmentsPrefectureQuiz} />
+                <Route exact path="/departments/prefecture/rev-quiz" component={DepartmentsPrefectureReverseQuiz} />
 
                 <Route exact path="/maps/departments" component={DepartmentsMap} />
 

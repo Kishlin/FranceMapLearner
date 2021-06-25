@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Grid, Input } from "@material-ui/core";
 
-function QuizzLoopCountPicker(props) {
+function QuizLoopCountPicker(props) {
     const inputProps = { step: 1, min: 1, max: 99, type: 'number', 'aria-labelledby': 'label-answer-time' };
 
     return (
@@ -20,10 +20,10 @@ function QuizzLoopCountPicker(props) {
     );
 }
 
-QuizzLoopCountPicker.propTypes = {
+QuizLoopCountPicker.propTypes = {
     handleLoopCountChange: PropTypes.func.isRequired,
     questionCount: PropTypes.number.isRequired,
     loopCount: PropTypes.number.isRequired,
 }
 
-export default QuizzLoopCountPicker;
+export default QuizLoopCountPicker;

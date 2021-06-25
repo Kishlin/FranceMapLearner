@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { ANSWER_TIME_IN_SECONDS, CORRECTION_TIMEOUT, LOOP_COUNT_PER_QUIZZ } from "../../constants/Config";
-import QuizzLoopCountPicker from "../../components/Configuration/QuizzLoopCountPicker";
+import QuizLoopCountPicker from "../../components/Configuration/QuizLoopCountPicker";
 import ConfiguratorTitle from "../../components/Configuration/ConfiguratorTitle";
 import AnswerTimePicker from "../../components/Configuration/AnswerTimePicker";
 import RegionCountInfo from "../../components/Configuration/RegionCountInfo";
@@ -11,7 +11,7 @@ import GoButtonBox from "../../components/Configuration/GoButtonBox";
 import { useNumberState } from "../../helpers";
 import { Regions } from "../../data";
 
-function RegionQuizzConfigurator(props) {
+function RegionQuizConfigurator(props) {
     const [answerTime, handleAnswerTimeChange] = useNumberState(ANSWER_TIME_IN_SECONDS);
     const [loopCount, handleLoopCountChange] = useNumberState(LOOP_COUNT_PER_QUIZZ);
 
@@ -24,15 +24,15 @@ function RegionQuizzConfigurator(props) {
         <Configurator>
             <ConfiguratorTitle>Test yourself - regions map</ConfiguratorTitle>
             <RegionCountInfo regionsCount={regionsCount} />
-            <QuizzLoopCountPicker handleLoopCountChange={handleLoopCountChange} questionCount={promptCount} loopCount={loopCount} />
+            <QuizLoopCountPicker handleLoopCountChange={handleLoopCountChange} questionCount={promptCount} loopCount={loopCount} />
             <AnswerTimePicker handleAnswerTimeChange={handleAnswerTimeChange} answerTime={answerTime} />
             <GoButtonBox goButtonHandler={goButtonHandler} promptCount={promptCount} />
         </Configurator>
     );
 }
 
-RegionQuizzConfigurator.propTypes = {
+RegionQuizConfigurator.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 };
 
-export default RegionQuizzConfigurator;
+export default RegionQuizConfigurator;
