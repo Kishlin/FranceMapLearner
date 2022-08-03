@@ -10,13 +10,21 @@ function Message(props) {
 
     if (100 === precision) {
         return Headline('Practice makes perfect.', 'Congratulations!');
-    } else if (precision >= 80) {
+    }
+    
+    if (precision >= 80) {
         return Headline('Good job!', 'This is an amazing score!');
-    } else if (precision >= 60) {
+    }
+    
+    if (precision >= 60) {
         return Headline('Well done!', ' You should practice to get better.');
-    } else if (precision >= 40) {
+    }
+    
+    if (precision >= 40) {
         return Headline('Average at best.', 'You should practice more.');
-    } else if (precision >= 20) {
+    }
+    
+    if (precision >= 20) {
         return Headline('Pretty terrible...', 'Have you practiced?');
     }
 
