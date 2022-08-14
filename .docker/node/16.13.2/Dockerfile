@@ -1,4 +1,4 @@
-FROM kishlin/base-kishlin-node:12.9-alpine-dev
+FROM kishlin/base-kishlin-node:16.3.2-alpine-dev
 
 VOLUME /srv/cache
 
