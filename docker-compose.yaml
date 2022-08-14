@@ -12,7 +12,7 @@ services:
       args:
         DOCKER_USER: kishlin
         DOCKER_USER_ID: 1000
-    restart: "${RESTART_POLICIES}"
+    restart: on-failure
     volumes:
       - ${PWD}:/var/www/html
       - cache:/srv/cache
