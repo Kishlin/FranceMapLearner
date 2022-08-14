@@ -24,3 +24,6 @@ yarn-error.log*
 
 # PHP Storm
 .idea/
+
+# project
+docker-compose.yaml
