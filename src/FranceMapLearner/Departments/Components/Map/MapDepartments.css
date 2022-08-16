@@ -1,0 +1,32 @@
+svg#map-departments {
+    max-width: 90vw;
+    max-height: 80vh;
+    transform: translateX(-50px);
+}
+
+svg#map-departments g, svg g path {
+    fill: #FBFAF9;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+svg#map-departments g path {
+    stroke: rgb(140, 162, 192);
+}
+
+svg#map-departments g.region {
+    stroke: rgb(134, 220, 104);
+}
+
+svg#map-departments g path.map-item-indicated {
+    fill: #6969FB;
+}
+
+svg#map-departments g path.map-item-correct {
+    fill: #69FB69;
+}
+
+svg#map-departments g path.map-item-wrong {
+    fill: #FB6969;
+}
