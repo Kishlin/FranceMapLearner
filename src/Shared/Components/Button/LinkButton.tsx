@@ -7,7 +7,7 @@ const defaultProps = {
 };
 
 type LinkButtonProps = {
-    color?: 'primary';
+    color?: 'primary'|'secondary';
     text: string;
     url: string;
 } & typeof defaultProps;

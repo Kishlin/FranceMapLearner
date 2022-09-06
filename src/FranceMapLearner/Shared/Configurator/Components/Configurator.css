@@ -1,0 +1,31 @@
+div.configurator .configurator-section {
+    margin:25px auto;
+}
+
+div.configurator .configurator-section:nth-child(2) {
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+div.configurator .configurator-section:nth-child(2) p {
+    margin-bottom: 15px;
+}
+
+div.configurator .configurator-section:nth-child(2) label {
+    margin: -12px;
+    width: 285px;
+}
+
+div.configurator .configurator-section:nth-child(2) label span:nth-child(2) {
+    white-space: pre;
+}
+
+@media screen and (min-width: 1000px) {
+    div.configurator {
+        max-width: 850px;
+    }
+
+    div.configurator .configurator-section {
+        margin: 10px auto;
+    }
+}
